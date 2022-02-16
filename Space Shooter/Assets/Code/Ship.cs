@@ -14,8 +14,16 @@ public class Ship : MonoBehaviour
     public float fireRate;
     public float projectileSpeed;
 
-    public float currentSpeed;
-    public int currentArmor;
+    [HideInInspector] public float currentSpeed;
+    [HideInInspector] public int currentArmor;
+
+    [HideInInspector] public bool canShoot;
+
+    private void Awake()
+    {
+        currentArmor = maxArmor;
+        canShoot = true;
+    }
 
     private void FixedUpdate()
     {
@@ -33,14 +41,31 @@ public class Ship : MonoBehaviour
     {
         GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
+        projectile.GetComponent<Projectile>().GetFired(gameObject);
         Destroy(projectile, 4);
+        StartCoroutine(FireRateBuffer());
     }
-    public void TakeDamage()
-    {
 
+    private IEnumerator FireRateBuffer()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(fireRate); 
+        canShoot = true;
+    }
+
+    public void TakeDamage(int damageToGive)
+    {
+        //TODO: play getHitSound
+        currentArmor -= damageToGive;
+        if (currentArmor <= 0)
+        {
+            Explode();
+        }
     }
     public void Explode()
     {
-
+        //TODO Make Cool Particle Effect
+        Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
