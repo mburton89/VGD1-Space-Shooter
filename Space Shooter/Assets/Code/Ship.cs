@@ -19,10 +19,12 @@ public class Ship : MonoBehaviour
 
     [HideInInspector] public bool canShoot;
 
+    [HideInInspector] ParticleSystem thrustParticles;
     private void Awake()
     {
         currentArmor = maxArmor;
         canShoot = true;
+        thrustParticles = GetComponentInChildren<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -36,6 +38,7 @@ public class Ship : MonoBehaviour
     public void Thrust()
     {
         rigidbody2D.AddForce(transform.up * acceleration);
+        thrustParticles.Emit(1);
     }
     public void FireProjectile()
     {
@@ -67,5 +70,7 @@ public class Ship : MonoBehaviour
         ScreenShakeManager.Instance.ShakeScreen();
         Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
         Destroy(gameObject);
+
+        FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
     }
 }
