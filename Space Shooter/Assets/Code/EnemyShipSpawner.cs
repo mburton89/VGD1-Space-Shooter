@@ -4,15 +4,30 @@ using UnityEngine;
 
 public class EnemyShipSpawner : MonoBehaviour
 {
-    public GameObject enemyShip1;
-    public GameObject enemyShip2;
-    public Transform spawnPoint1;
-    public Transform spawnPoint2;
+    public List<EnemyShip> enemyShipPrefabs;
+    public Transform spawnPoint;
+    public Transform spawnPivot;
+
+    [HideInInspector] public int currentWave = 1;
+    [HideInInspector] public int startingNumberOfShips;
+
+    private void Awake()
+    {
+        startingNumberOfShips = FindObjectsOfType<EnemyShip>().Length;
+    }
 
     public void SpawnEnemyShips()
     {
-        Instantiate(enemyShip1, spawnPoint1.position, transform.rotation, null);
-        Instantiate(enemyShip2, spawnPoint2.position, transform.rotation, null);
+        int enemyShipsToSpawn = startingNumberOfShips + currentWave;
+
+        for (int i = 0; i < enemyShipsToSpawn; i++)
+        {
+            int rand = Random.Range(0, enemyShipPrefabs.Count);
+            float zRotation = Random.Range(0, 360);
+
+            spawnPivot.eulerAngles = new Vector3(0, 0, zRotation);
+            Instantiate(enemyShipPrefabs[rand], spawnPoint.position, transform.rotation, null);
+        }
     }
 
     public void CountEnemyShips()
@@ -23,6 +38,8 @@ public class EnemyShipSpawner : MonoBehaviour
 
         if (numberOfEnemyShips == 1)
         {
+            currentWave++;
+            HUD.Instance.DisplayWave(currentWave);
             SpawnEnemyShips();
         }
     }
