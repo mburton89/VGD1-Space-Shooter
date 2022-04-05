@@ -67,7 +67,7 @@ public class Ship : MonoBehaviour
 
         if (GetComponent<PlayerShip>())
         {
-            HUD.Instance.DisplayHealth(currentArmor, maxArmor);
+            HUD.Instance.DisplayPlayerHealth(currentArmor, maxArmor);
         }
     }
     public void Explode()

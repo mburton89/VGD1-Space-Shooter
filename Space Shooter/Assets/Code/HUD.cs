@@ -8,18 +8,28 @@ public class HUD : MonoBehaviour
 {
     public static HUD Instance;
 
-    public Image healthBarFill;
+    public Image playerHealthBarFill;
     public TextMeshProUGUI waveText;
+
+    public GameObject planetHealthBarContainer;
+    public Image planetHealthBarFill;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void DisplayHealth(int currentArmor, int maxArmor)
+    public void DisplayPlayerHealth(int currentArmor, int maxArmor)
     {
         float healthAmount = (float)currentArmor / (float)maxArmor;
-        healthBarFill.fillAmount = healthAmount;
+        playerHealthBarFill.fillAmount = healthAmount;
+    }
+
+    public void DisplayPlanetHealth(int currentArmor, int maxArmor)
+    {
+        planetHealthBarContainer.SetActive(true);
+        float healthAmount = (float)currentArmor / (float)maxArmor;
+        planetHealthBarFill.fillAmount = healthAmount;
     }
 
     public void DisplayWave(int currentWave)

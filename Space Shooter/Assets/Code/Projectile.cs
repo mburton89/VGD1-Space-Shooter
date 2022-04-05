@@ -14,6 +14,12 @@ public class Projectile : MonoBehaviour
             collision.GetComponent<Ship>().TakeDamage(damageToGive);
             Destroy(gameObject);
         }
+
+        if (collision.GetComponent<Planet>())
+        {
+            collision.GetComponent<Planet>().TakeDamage(damageToGive);
+            Destroy(gameObject);
+        }
     }
 
     public void GetFired(GameObject firer)
