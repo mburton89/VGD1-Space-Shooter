@@ -26,6 +26,12 @@ public class Planet : MonoBehaviour
     public void TakeDamage(int damageToGive)
     {
         //TODO: play getHitSound
+        int remainder = currentArmor % 20; 
+        if (remainder == 0)
+        {
+            SpawnEnemyShip();
+        }
+
         currentArmor -= damageToGive;
         if (currentArmor <= 0)
         {
