@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateZ : MonoBehaviour
 {
-    [SerializeField] float rotateSpeed;
+    public float rotateSpeed;
     Vector3 rotation;
 
     private void Start()
