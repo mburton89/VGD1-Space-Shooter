@@ -32,6 +32,7 @@ public class AsteroidBeltGenerator : MonoBehaviour
             GameObject asteroid = Instantiate(asteroidPrefabs[rand], newSpawnPosition, transform.rotation, transform);
             asteroid.GetComponent<RotateZ>().rotateSpeed = Random.Range(-asteroidRotateSpeed, asteroidRotateSpeed);
             asteroid.transform.localScale = new Vector3(asteroidSize, asteroidSize, 1);
+            asteroid.GetComponent<SpriteRenderer>().sortingOrder = (int)transform.localPosition.z;
         }
     }
 

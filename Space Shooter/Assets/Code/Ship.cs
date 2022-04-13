@@ -7,6 +7,7 @@ public class Ship : MonoBehaviour
     public Rigidbody2D rigidbody2D;
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
+    public Transform projectileSpawnPoint2;
 
     public float acceleration;
     public float maxSpeed;
@@ -38,7 +39,10 @@ public class Ship : MonoBehaviour
     public void Thrust()
     {
         rigidbody2D.AddForce(transform.up * acceleration);
-        thrustParticles.Emit(1);
+        if (thrustParticles != null)
+        {
+            thrustParticles.Emit(1);
+        }
     }
     public void FireProjectile()
     {
@@ -46,6 +50,15 @@ public class Ship : MonoBehaviour
         projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
         projectile.GetComponent<Projectile>().GetFired(gameObject);
         Destroy(projectile, 4);
+
+        if (projectileSpawnPoint2 != null)
+        {
+            GameObject projectile2 = Instantiate(projectilePrefab, projectileSpawnPoint2.position, transform.rotation);
+            projectile2.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
+            projectile2.GetComponent<Projectile>().GetFired(gameObject);
+            Destroy(projectile2, 4);
+        }
+
         StartCoroutine(FireRateBuffer());
     }
 

@@ -4825,7 +4825,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8232776608504770444}
   - component: {fileID: 8483067601311318428}
-  - component: {fileID: 1712803946081081816}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -4840,13 +4839,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765166754185221980}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.06, y: -0.27, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 3472790249586634179}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8483067601311318428
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4888,7 +4887,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8358198912495138930, guid: 6f3be04f84a5ef644a121f2d3dfc74ef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3b005f0570aa58f4ca8d7ed8c08c8eb7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4899,25 +4898,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1712803946081081816
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765166754185221980}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2432367db57a11442b8618ace8e7f72a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3472790249586634180
 GameObject:
   m_ObjectHideFlags: 0
@@ -4929,10 +4909,10 @@ GameObject:
   - component: {fileID: 3472790249586634179}
   - component: {fileID: 3472790249586634176}
   - component: {fileID: 3472790249586634177}
-  - component: {fileID: 3472790249586634182}
   - component: {fileID: 3472790249586634183}
+  - component: {fileID: 7445847461968513933}
   m_Layer: 0
-  m_Name: EnemyShip - Frog
+  m_Name: EnemyShip - Acid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5028,7 +5008,31 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &3472790249586634182
+--- !u!114 &3472790249586634183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472790249586634180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501eec1ee95a004da6e163f036df662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidbody2D: {fileID: 3472790249586634177}
+  projectilePrefab: {fileID: 7892308106377166166, guid: 0b8c770ae29e345429d194a8011b767b, type: 3}
+  projectileSpawnPoint: {fileID: 3472790250054849957}
+  acceleration: 2
+  maxSpeed: 6
+  maxArmor: 3
+  fireRate: 2
+  projectileSpeed: 0
+  currentSpeed: 0
+  currentArmor: 0
+  canShoot: 0
+  canFireAtPlayer: 1
+--- !u!60 &7445847461968513933
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5053,45 +5057,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.39999998, y: -0.07}
-      - {x: 0.09250334, y: 0.29319984}
-      - {x: 0.044644833, y: 0.3310579}
-      - {x: -0.11821939, y: 0.3042708}
-      - {x: -0.12464483, y: 0.29677403}
-      - {x: -0.17999999, y: 0.32999998}
-      - {x: -0.29999998, y: 0.12}
-      - {x: -0.52, y: -0.26}
-      - {x: -0.5864254, y: -0.4621419}
-      - {x: -0.54178107, y: -0.50321287}
-      - {x: -0.49606502, y: -0.52214193}
-      - {x: 0.32569456, y: -0.6026652}
-      - {x: 0.41463196, y: -0.48642576}
-      - {x: 0.30962574, y: -0.5914323}
-      - {x: 0.41677392, y: -0.3817806}
---- !u!114 &3472790249586634183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3472790249586634180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e501eec1ee95a004da6e163f036df662, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidbody2D: {fileID: 3472790249586634177}
-  projectilePrefab: {fileID: 7892308106377166166, guid: 0b8c770ae29e345429d194a8011b767b, type: 3}
-  projectileSpawnPoint: {fileID: 3472790250054849957}
-  acceleration: 3
-  maxSpeed: 9
-  maxArmor: 1
-  fireRate: 0
-  projectileSpeed: 0
-  currentSpeed: 0
-  currentArmor: 0
-  canShoot: 0
-  canFireAtPlayer: 0
+    - - {x: 0.27928293, y: -0.70198864}
+      - {x: 0.22172669, y: -0.005180657}
+      - {x: -0.007101059, y: 0.44798005}
+      - {x: -0.22592928, y: 0.014819324}
+      - {x: -0.29302984, y: -0.7084724}
 --- !u!1 &3472790250054849962
 GameObject:
   m_ObjectHideFlags: 0
