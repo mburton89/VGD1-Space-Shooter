@@ -20,7 +20,7 @@ public class OvalRotationScript : MonoBehaviour
         //make 5 points to touch
         //oval pattern and rotatting**
 
-        transform.position = new Vector2(0f + (20f * Mathf.Sin(Mathf.Deg2Rad * alpha)), 15f + (25f * Mathf.Cos(Mathf.Deg2Rad * alpha)));
+        transform.position = new Vector2(0f + (17f * Mathf.Sin(Mathf.Deg2Rad * alpha)), 15f + (25f * Mathf.Cos(Mathf.Deg2Rad * alpha)));
         alpha += RotSpeed;//can be used as speed
     }
 }
