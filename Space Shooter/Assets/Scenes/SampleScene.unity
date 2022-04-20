@@ -1399,7 +1399,7 @@ MonoBehaviour:
   projectileSpawnPoint2: {fileID: 376990511}
   acceleration: 8
   maxSpeed: 18
-  maxArmor: 3
+  maxArmor: 300
   fireRate: 1
   projectileSpeed: 100
   currentSpeed: 0
