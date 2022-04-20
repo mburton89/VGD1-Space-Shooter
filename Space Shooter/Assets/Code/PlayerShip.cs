@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerShip : Ship
 {
+    public int healValue;
+
     void Update()
     {
         FollowMouse();
@@ -28,5 +30,19 @@ public class PlayerShip : Ship
         Vector2 directionToFace = new Vector2(
             mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
         transform.up = directionToFace;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("HealthPack"))
+        {
+            currentArmor += healValue;
+            HUD.Instance.DisplayPlayerHealth(currentArmor, maxArmor);
+
+            if (currentArmor > maxArmor)
+            {
+                currentArmor = maxArmor;
+            }
+        }
     }
 }
