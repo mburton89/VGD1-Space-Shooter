@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 1378659797215572772}
-  projectilePrefab: {fileID: 7892308106377166166, guid: 0b8c770ae29e345429d194a8011b767b, type: 3}
+  projectilePrefab: {fileID: 7892308106377166166, guid: 8e20510d9f518f9418169f5e4b741fb5, type: 3}
   projectileSpawnPoint: {fileID: 1378659796573342528}
   projectileSpawnPoint2: {fileID: 0}
   acceleration: 2
