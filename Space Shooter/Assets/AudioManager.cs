@@ -1,24 +1,9 @@
-<<<<<<< Updated upstream
+using System;
 using UnityEngine.Audio;    
-=======
-using UnityEngine.Audio;
->>>>>>> Stashed changes
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-=======
     public Sound[] sounds; 
     void Awake()
     {
@@ -35,8 +20,7 @@ public class AudioManager : MonoBehaviour
 
    public void  Play (string name)
     {
-        Sound s = Array.Find(sounds, Sound => sound.name == name);
-        s.source.Play();
->>>>>>> Stashed changes
+        //Sound s = Array.Find(sounds, Sound => sound.name == name);
+        //s.source.Play();
     }
 }
