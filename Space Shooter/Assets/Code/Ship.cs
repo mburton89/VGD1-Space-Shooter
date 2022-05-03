@@ -36,6 +36,14 @@ public class Ship : MonoBehaviour
         }
     }
 
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.GetComponent<ParticleSystem>())
+        {
+            TakeDamage(1);
+        }
+    }
+
     public void Thrust()
     {
         rigidbody2D.AddForce(transform.up * acceleration);
