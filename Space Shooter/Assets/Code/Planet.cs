@@ -49,7 +49,7 @@ public class Planet : MonoBehaviour
     public void Explode()
     {
         ScreenShakeManager.Instance.ShakeScreen();
-        Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
+        Instantiate(Resources.Load("Planet Explosion"), transform.position, transform.rotation, null);
         Destroy(gameObject);
     }
 }
