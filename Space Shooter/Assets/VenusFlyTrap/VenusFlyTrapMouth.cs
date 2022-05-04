@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class VenusFlyTrapMouth : MonoBehaviour
 {
+
     //Public variables
     //Currently there is no max speed to how fast the head/mouth can move.
     //        This may be changed later.
+    public RotateZ rotator;
     public Rigidbody2D rigidbod2d;
     public float speed;
     public int damage;
@@ -32,11 +34,18 @@ public class VenusFlyTrapMouth : MonoBehaviour
     //True is used to move the head back. The default moves the head forward.
     public void catchPlayer(bool retreat = false)
     {
+        float enhancedRotateSpeed = rotator.rotateSpeed * .55f;
+
 
         if (retreat)
+        {
             rigidbod2d.AddForce(transform.up * (speed * -1));
+        }
         else
+        {
+            rigidbod2d.AddForce(transform.right * (enhancedRotateSpeed * -1));
             rigidbod2d.AddForce(transform.up * speed);
+        }
 
     }
 

@@ -10,9 +10,16 @@ public class VenusFlyTrapBase : MonoBehaviour
     public Animator animator;
     int changer;
 
+    //Private Variables
+    private float flyTrapX;
+
     //Control methdos
     private void Start()
     {
+        float diffX = transform.position.x - flytrap.transform.position.x;
+        float diffY = transform.position.y - flytrap.transform.position.y;
+        float diffZ = transform.position.z - flytrap.transform.position.z;
+
         changer = 0;
     }
 
@@ -26,12 +33,14 @@ public class VenusFlyTrapBase : MonoBehaviour
                 changer = 1;
                 animator.SetInteger("attack", changer);
                 print("Working for up");
+
+                //Three times to make sure the head moves quickly.
+                flytrap.catchPlayer();
+                flytrap.catchPlayer();
+                flytrap.catchPlayer();
             }
 
-            //Three times to make sure the head moves quickly.
-            flytrap.catchPlayer();
-            flytrap.catchPlayer();
-            flytrap.catchPlayer();
+            
         }
     }
 
@@ -57,7 +66,7 @@ public class VenusFlyTrapBase : MonoBehaviour
             flytrap.rigidbod2d.velocity = flytrap.rigidbod2d.velocity.normalized * 0;
 
             while (flytrap.gameObject.transform.localPosition.y < -0.738)
-                flytrap.gameObject.transform.localPosition = new Vector3(flytrap.gameObject.transform.localPosition.x, flytrap.gameObject.transform.localPosition.y + 0.1f, flytrap.gameObject.transform.localPosition.z);
+                flytrap.gameObject.transform.localPosition = new Vector3(0.0f, flytrap.gameObject.transform.localPosition.y + 0.1f, flytrap.gameObject.transform.localPosition.z);
 
             if (changer == 2)
             {
