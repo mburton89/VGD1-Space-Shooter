@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (collision.GetComponent<Planet>())
+        if (collision.GetComponent<Planet>() && firingShip.GetComponent<PlayerShip>())
         {
             collision.GetComponent<Planet>().TakeDamage(damageToGive);
             Destroy(gameObject);
