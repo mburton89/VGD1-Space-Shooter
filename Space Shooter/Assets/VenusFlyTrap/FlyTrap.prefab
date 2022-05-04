@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8618607051294675532}
   - component: {fileID: 8618607051294675539}
   - component: {fileID: 8618607051294675533}
+  - component: {fileID: 4858747333250504103}
   m_Layer: 0
   m_Name: FlyTrap
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8618607051294675537}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -20.5, y: 8, z: -0.104426086}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 8618607051721683062}
   m_Father: {fileID: 0}
@@ -72,8 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a64c3e4003017aa45ae718f0c4ea5872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceToReach: 4
+  distanceToReach: 0.8
   flytrap: {fileID: 8618607051721683063}
+  animator: {fileID: 4858747333250504103}
 --- !u!212 &8618607051294675533
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -126,6 +128,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4858747333250504103
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8618607051294675537}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9e7212c78339eed4ca09c69e29fe7c7b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8618607051721683061
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,8 +175,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8618607051721683061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.104426086}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.738, z: 0.104426086}
+  m_LocalScale: {x: 1, y: -0.1750486, z: 1}
   m_Children: []
   m_Father: {fileID: 8618607051294675538}
   m_RootOrder: 0
@@ -272,6 +293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbod2d: {fileID: 8618607051721683056}
-  speed: 300
+  speed: 80
   damage: 1
   savedPosition: {x: 0, y: 0, z: 0}
