@@ -4886,7 +4886,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 3b005f0570aa58f4ca8d7ed8c08c8eb7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5023,6 +5023,7 @@ MonoBehaviour:
   rigidbody2D: {fileID: 3472790249586634177}
   projectilePrefab: {fileID: 7892308106377166166, guid: 0b8c770ae29e345429d194a8011b767b, type: 3}
   projectileSpawnPoint: {fileID: 3472790250054849957}
+  projectileSpawnPoint2: {fileID: 0}
   acceleration: 2
   maxSpeed: 6
   maxArmor: 3
