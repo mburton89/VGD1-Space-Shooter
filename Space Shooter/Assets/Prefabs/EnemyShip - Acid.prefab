@@ -5028,7 +5028,7 @@ MonoBehaviour:
   maxSpeed: 6
   maxArmor: 3
   fireRate: 2
-  projectileSpeed: 0
+  projectileSpeed: 50
   currentSpeed: 0
   currentArmor: 0
   canShoot: 0
