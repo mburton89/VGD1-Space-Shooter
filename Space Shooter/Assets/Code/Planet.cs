@@ -12,6 +12,8 @@ public class Planet : MonoBehaviour
 
     [HideInInspector] bool isInCombat;
 
+    int timesHit;
+
     private void Start()
     {
         currentArmor = maxArmor;
@@ -26,10 +28,11 @@ public class Planet : MonoBehaviour
     public void TakeDamage(int damageToGive)
     {
         //TODO: play getHitSound
-        int remainder = currentArmor % 20; 
-        if (remainder == 0)
+        timesHit++;
+        if (timesHit == 4)
         {
             SpawnEnemyShip();
+            timesHit = 0;
         }
 
         currentArmor -= damageToGive;

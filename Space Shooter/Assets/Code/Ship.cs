@@ -38,7 +38,7 @@ public class Ship : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.GetComponent<ParticleSystem>())
+        if (other.GetComponent<ParticleSystem>() && GetComponent<PlayerShip>())
         {
             TakeDamage(1);
         }
@@ -93,6 +93,11 @@ public class Ship : MonoBehaviour
     }
     public void Explode()
     {
+        if (GetComponent<PlayerShip>())
+        {
+            RestartManager.Instance.Restart();
+        }
+
         ScreenShakeManager.Instance.ShakeScreen();
         Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
         Destroy(gameObject);

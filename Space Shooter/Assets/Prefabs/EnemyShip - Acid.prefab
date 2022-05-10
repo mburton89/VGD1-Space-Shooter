@@ -5024,8 +5024,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7892308106377166166, guid: 0b8c770ae29e345429d194a8011b767b, type: 3}
   projectileSpawnPoint: {fileID: 3472790250054849957}
   projectileSpawnPoint2: {fileID: 0}
-  acceleration: 2
-  maxSpeed: 6
+  acceleration: 3
+  maxSpeed: 9
   maxArmor: 3
   fireRate: 2
   projectileSpeed: 50
