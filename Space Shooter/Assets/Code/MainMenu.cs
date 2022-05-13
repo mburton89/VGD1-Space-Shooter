@@ -7,7 +7,10 @@ using DG.Tweening;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] Button startGameButton;
+    [SerializeField] Button acidButton;
+    [SerializeField] Button fireAndIceButton;
+    [SerializeField] Button absurdButton;
+
     [SerializeField] Button leftShipButton;
     [SerializeField] Button rightShipButton;
 
@@ -16,15 +19,29 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        startGameButton.onClick.AddListener(StartGame);
+        acidButton.onClick.AddListener(PlayAcidPlanet);
+        fireAndIceButton.onClick.AddListener(PlayFireAndIcePlanet);
+        absurdButton.onClick.AddListener(PlayAbsurdPlanet);
         leftShipButton.onClick.AddListener(CycleShipsLeft);
         rightShipButton.onClick.AddListener(CycleShipsRight);
     }
 
-    void StartGame()
+    void PlayAcidPlanet()
     {
         PlayerPrefs.SetInt("PlayerShipChoice", playerShipIndex);
         SceneManager.LoadScene(1);
+    }
+
+    void PlayFireAndIcePlanet()
+    {
+        PlayerPrefs.SetInt("PlayerShipChoice", playerShipIndex);
+        SceneManager.LoadScene(2);
+    }
+
+    void PlayAbsurdPlanet()
+    {
+        PlayerPrefs.SetInt("PlayerShipChoice", playerShipIndex);
+        SceneManager.LoadScene(3);
     }
 
     void CycleShipsLeft()
