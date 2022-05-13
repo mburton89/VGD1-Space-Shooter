@@ -27,6 +27,11 @@ public class Planet : MonoBehaviour
 
     public void TakeDamage(int damageToGive)
     {
+        if (!isInCombat)
+        {
+            SmartSoundManager.Instance.ToggleMusic();
+        }
+
         //TODO: play getHitSound
         timesHit++;
         if (timesHit == 4)
@@ -47,6 +52,8 @@ public class Planet : MonoBehaviour
         {
             GetComponent<FlashWhite>().Flash();
         }
+
+        SmartSoundManager.Instance.PlayShipHitSound();
     }
 
     public void Explode()

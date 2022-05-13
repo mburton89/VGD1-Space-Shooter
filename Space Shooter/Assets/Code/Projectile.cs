@@ -9,6 +9,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (firingShip.GetComponent<EnemyShip>() && collision.GetComponent<EnemyShip>())
+            return;
+
         if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)
         {
             collision.GetComponent<Ship>().TakeDamage(damageToGive);

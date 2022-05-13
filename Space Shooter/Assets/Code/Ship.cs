@@ -68,6 +68,8 @@ public class Ship : MonoBehaviour
         }
 
         StartCoroutine(FireRateBuffer());
+
+        SmartSoundManager.Instance.PlayLaserSound();
     }
 
     private IEnumerator FireRateBuffer()
@@ -79,7 +81,7 @@ public class Ship : MonoBehaviour
 
     public void TakeDamage(int damageToGive)
     {
-        //TODO: play getHitSound
+        SmartSoundManager.Instance.PlayShipHitSound();
         currentArmor -= damageToGive;
         if (currentArmor <= 0)
         {
@@ -89,8 +91,10 @@ public class Ship : MonoBehaviour
         if (GetComponent<PlayerShip>())
         {
             HUD.Instance.DisplayPlayerHealth(currentArmor, maxArmor);
+            //GetComponent<FlashWhite>().Flash();
         }
     }
+
     public void Explode()
     {
         if (GetComponent<PlayerShip>())

@@ -16,7 +16,7 @@ public class EnemyShip : Ship
     {
         if (collision.gameObject.GetComponent<PlayerShip>())
         {
-            collision.gameObject.GetComponent<PlayerShip>().TakeDamage(1);
+            collision.gameObject.GetComponent<PlayerShip>().TakeDamage(10);
             Explode();
         }
     }

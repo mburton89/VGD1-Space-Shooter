@@ -12,6 +12,11 @@ public class RestartManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        InvokeRepeating("CheckForWin", 0, 5);
+    }
+
     public void Restart()
     {
         StartCoroutine(RestartCo());
@@ -21,5 +26,23 @@ public class RestartManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void CheckForWin()
+    {
+        StartCoroutine(CheckForWinCo());
+    }
+
+    private IEnumerator CheckForWinCo()
+    {
+        if (FindObjectOfType<EnemyShip>() || FindObjectOfType<Planet>())
+        {
+
+        }
+        else
+        {
+            yield return new WaitForSeconds(2);
+            SceneManager.LoadScene(0);
+        }
     }
 }

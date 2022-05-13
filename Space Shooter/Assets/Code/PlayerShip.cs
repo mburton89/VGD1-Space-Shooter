@@ -17,7 +17,13 @@ public class PlayerShip : Ship
         if (Input.GetMouseButton(1))
         {
             Thrust();
+            SmartSoundManager.Instance.ToggleThrustSound(true);
         }
+        else if (Input.GetMouseButtonUp(1))
+        {
+            SmartSoundManager.Instance.ToggleThrustSound(false);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
             FireProjectile();
@@ -43,6 +49,13 @@ public class PlayerShip : Ship
             {
                 currentArmor = maxArmor;
             }
+        }
+
+        if (collision.GetComponent<HUB>() && currentArmor < maxArmor)
+        {
+            currentArmor = maxArmor;
+            HUD.Instance.DisplayPlayerHealth(currentArmor, maxArmor);
+            SmartSoundManager.Instance.PlayHealthRegenSound();
         }
     }
 }
