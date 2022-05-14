@@ -40,7 +40,7 @@ public class Ship : MonoBehaviour
     {
         if (other.GetComponent<ParticleSystem>() && GetComponent<PlayerShip>())
         {
-            TakeDamage(1);
+            TakeDamage(2);
         }
     }
 

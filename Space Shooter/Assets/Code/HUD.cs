@@ -25,11 +25,23 @@ public class HUD : MonoBehaviour
         playerHealthBarFill.fillAmount = healthAmount;
     }
 
-    public void DisplayPlanetHealth(int currentArmor, int maxArmor)
+    public void DisplayPlanetHealth(int currentArmor, int maxArmor, Color color)
     {
+        planetHealthBarFill.color = color;
         planetHealthBarContainer.SetActive(true);
         float healthAmount = (float)currentArmor / (float)maxArmor;
         planetHealthBarFill.fillAmount = healthAmount;
+    }
+
+    public void HidePlanetHealth()
+    {
+        StartCoroutine(HidePlanetHealthCo());
+    }
+
+    private IEnumerator HidePlanetHealthCo()
+    {
+        yield return new WaitForSeconds(1);
+        planetHealthBarContainer.SetActive(false);
     }
 
     public void DisplayWave(int currentWave)

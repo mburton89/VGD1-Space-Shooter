@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FlashWhite : MonoBehaviour
 {
-    SpriteRenderer spriteRenderer;
+    [SerializeField] SpriteRenderer spriteRenderer;
     Material initialMaterial;
     [SerializeField] Material whiteMaterial;
 
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
         initialMaterial = spriteRenderer.material;
     }
 
