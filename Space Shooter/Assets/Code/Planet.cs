@@ -12,6 +12,8 @@ public class Planet : MonoBehaviour
 
     [HideInInspector] bool isInCombat;
 
+    public Color healthColor;
+
     int timesHit;
 
     private void Start()
@@ -20,7 +22,9 @@ public class Planet : MonoBehaviour
     }
 
     public void SpawnEnemyShip()
-    { 
+    {
+        if (enemyShipPrefabs == null) return;
+
         int rand = Random.Range(0, enemyShipPrefabs.Count);
         Instantiate(enemyShipPrefabs[rand], spawnPoint.position, transform.rotation, null);
     }
@@ -34,7 +38,7 @@ public class Planet : MonoBehaviour
 
         //TODO: play getHitSound
         timesHit++;
-        if (timesHit == 4)
+        if (timesHit == 8)
         {
             SpawnEnemyShip();
             timesHit = 0;
@@ -46,7 +50,7 @@ public class Planet : MonoBehaviour
             Explode();
         }
 
-        HUD.Instance.DisplayPlanetHealth(currentArmor, maxArmor);
+        HUD.Instance.DisplayPlanetHealth(currentArmor, maxArmor, healthColor);
 
         if (GetComponent<FlashWhite>())
         {
@@ -58,6 +62,7 @@ public class Planet : MonoBehaviour
 
     public void Explode()
     {
+        HUD.Instance.HidePlanetHealth();
         ScreenShakeManager.Instance.ShakeScreen();
         Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
         Destroy(gameObject);

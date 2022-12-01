@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 15d6583803c16394983ff5ccfa0a518c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -166,15 +166,15 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7892308106377166166, guid: 8e20510d9f518f9418169f5e4b741fb5, type: 3}
   projectileSpawnPoint: {fileID: 5354866655014601123}
   projectileSpawnPoint2: {fileID: 0}
-  acceleration: 5
-  maxSpeed: 15
+  acceleration: 10
+  maxSpeed: 20
   maxArmor: 5
   fireRate: 2
   projectileSpeed: 220
   currentSpeed: 0
   currentArmor: 0
   canShoot: 0
-  canFireAtPlayer: 1
+  canFireAtPlayer: 0
 --- !u!1 &5354866654593714667
 GameObject:
   m_ObjectHideFlags: 0
