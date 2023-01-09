@@ -41,6 +41,11 @@ public class EnemyShipSpawner : MonoBehaviour
             currentWave++;
             HUD.Instance.DisplayWave(currentWave);
             SpawnEnemyShips();
+
+            if (currentWave > PlayerPrefs.GetInt("highestWave"))
+            {
+                PlayerPrefs.SetInt("highestWave", currentWave);
+            }
         }
     }
 }

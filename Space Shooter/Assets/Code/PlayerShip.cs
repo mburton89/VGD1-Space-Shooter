@@ -21,6 +21,7 @@ public class PlayerShip : Ship
             FireProjectile();
         }
     }
+
     void FollowMouse()
     {
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(
