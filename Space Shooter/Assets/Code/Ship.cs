@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,10 @@ public class Ship : MonoBehaviour
     [HideInInspector] public bool canShoot;
 
     [HideInInspector] ParticleSystem thrustParticles;
+
+    public List<string> sentences;
+    public float secondsBetweenLetters;
+
     private void Awake()
     {
         currentArmor = maxArmor;
@@ -77,5 +82,35 @@ public class Ship : MonoBehaviour
         Destroy(gameObject);
 
         FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
+    }
+
+    public void ShootSentence()
+    {
+        int rand = UnityEngine.Random.Range(0, sentences.Count);
+        string sentenceToShoot = sentences[rand];
+        StartCoroutine(ShootSentenceCo(sentenceToShoot));
+    }
+
+    private IEnumerator ShootSentenceCo(string sentence)
+    {
+        string newSentence = sentence;
+        print(transform.rotation.z);
+        if (transform.rotation.z < 0)
+        {
+            char[] stringArray = newSentence.ToCharArray();
+            Array.Reverse(stringArray);
+            newSentence = new string(stringArray);
+        }
+
+        foreach (char character in newSentence)
+        {
+            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
+            projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
+            projectile.GetComponent<Projectile>().GetFired(gameObject);
+            projectile.GetComponent<Projectile>().letter.SetText(character.ToString());
+            projectile.transform.eulerAngles = Vector3.zero;
+            Destroy(projectile, 4);
+            yield return new WaitForSeconds(secondsBetweenLetters);
+        }
     }
 }
