@@ -22,7 +22,9 @@ public class Ship : MonoBehaviour
 
     [HideInInspector] ParticleSystem thrustParticles;
 
-    public List<string> sentences;
+    public bool isGoodGuy = true;
+    public List<string> goodSentences;
+    public List<string> badSentences;
     public float secondsBetweenLetters;
 
     private void Awake()
@@ -86,8 +88,20 @@ public class Ship : MonoBehaviour
 
     public void ShootSentence()
     {
-        int rand = UnityEngine.Random.Range(0, sentences.Count);
-        string sentenceToShoot = sentences[rand];
+        int rand = 0;
+        string sentenceToShoot = "";
+
+        if (isGoodGuy)
+        {
+            UnityEngine.Random.Range(0, goodSentences.Count);
+            sentenceToShoot = goodSentences[rand];
+        }
+        else
+        {
+            UnityEngine.Random.Range(0, badSentences.Count);
+            sentenceToShoot = badSentences[rand];
+        }
+
         StartCoroutine(ShootSentenceCo(sentenceToShoot));
     }
 
@@ -108,6 +122,16 @@ public class Ship : MonoBehaviour
             projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
             projectile.GetComponent<Projectile>().GetFired(gameObject);
             projectile.GetComponent<Projectile>().letter.SetText(character.ToString());
+
+            if (isGoodGuy)
+            {
+                projectile.GetComponent<Projectile>().letter.color = Color.white;
+            }
+            else
+            {
+                projectile.GetComponent<Projectile>().letter.color = Color.red;
+            }
+
             projectile.transform.eulerAngles = Vector3.zero;
             Destroy(projectile, 4);
             yield return new WaitForSeconds(secondsBetweenLetters);

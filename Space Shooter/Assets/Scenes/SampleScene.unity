@@ -781,10 +781,16 @@ MonoBehaviour:
   currentSpeed: 0
   currentArmor: 0
   canShoot: 0
-  sentences:
-  - Hey Whats up
-  - Howdy partner
-  - F U
+  isGoodGuy: 1
+  goodSentences:
+  - Hey Whats up?
+  - Howdy Partner
+  - Let me hold the door for you
+  - How you doing
+  badSentences:
+  - F*** YOU
+  - I'MA SLAP YOU
+  - DIE
   secondsBetweenLetters: 0.05
 --- !u!1 &1065631266
 GameObject:

@@ -21,6 +21,11 @@ public class PlayerShip : Ship
             //FireProjectile();
             ShootSentence();
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isGoodGuy = !isGoodGuy;
+        }
     }
     void FollowMouse()
     {
