@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0e8305ca74545424aa5d7e64b45fa304, type: 2}
+  m_sharedMaterial: {fileID: 4873996734486567654, guid: 0e8305ca74545424aa5d7e64b45fa304, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -387,6 +387,10 @@ MonoBehaviour:
   damageToGive: 1
   letter: {fileID: 2630239980352977958}
   blipSound: {fileID: 4663999599229043266}
+  goodBlipSound: {fileID: 8300000, guid: 292613e24fb111747aa9e68cd68e3efc, type: 3}
+  badBlipSound: {fileID: 8300000, guid: fbc4c13ce96042846a56fd22b2f93f1a, type: 3}
+  goodGuyFont: {fileID: 11400000, guid: 0e8305ca74545424aa5d7e64b45fa304, type: 2}
+  badGuyFont: {fileID: 11400000, guid: 1d64cfab1dab28249a8c6af06555a3c7, type: 2}
 --- !u!82 &4663999599229043266
 AudioSource:
   m_ObjectHideFlags: 0

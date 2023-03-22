@@ -93,12 +93,12 @@ public class Ship : MonoBehaviour
 
         if (isGoodGuy)
         {
-            UnityEngine.Random.Range(0, goodSentences.Count);
+            rand = UnityEngine.Random.Range(0, goodSentences.Count);
             sentenceToShoot = goodSentences[rand];
         }
         else
         {
-            UnityEngine.Random.Range(0, badSentences.Count);
+            rand = UnityEngine.Random.Range(0, badSentences.Count);
             sentenceToShoot = badSentences[rand];
         }
 
@@ -125,11 +125,11 @@ public class Ship : MonoBehaviour
 
             if (isGoodGuy)
             {
-                projectile.GetComponent<Projectile>().letter.color = Color.white;
+                projectile.GetComponent<Projectile>().SwitchToGoodGuyFont();
             }
             else
             {
-                projectile.GetComponent<Projectile>().letter.color = Color.red;
+                projectile.GetComponent<Projectile>().SwitchToBadGuyFont();
             }
 
             projectile.transform.eulerAngles = Vector3.zero;

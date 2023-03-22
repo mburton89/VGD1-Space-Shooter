@@ -1079,7 +1079,7 @@ MonoBehaviour:
   - F*** YOU
   - I'MA SLAP YOU
   - DIE
-  secondsBetweenLetters: 0.05
+  secondsBetweenLetters: 0.04
 --- !u!1 &1065631266
 GameObject:
   m_ObjectHideFlags: 0
