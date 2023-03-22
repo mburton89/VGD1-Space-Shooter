@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 37cac4ee2a265cc42b098c7c7df3b6d2
+guid: 0e33cb7001d9e8543bc559a54f2df28e
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pixel Operator
+  - comic andy
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
