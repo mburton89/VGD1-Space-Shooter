@@ -6,8 +6,11 @@ using UnityEngine;
 public class Ship : MonoBehaviour
 {
     public Rigidbody2D rigidbody2D;
-    public GameObject projectilePrefab;
+    public GameObject convertProjectilePrefab;
+    public GameObject damageProjectilePrefab;
     public Transform projectileSpawnPoint;
+
+    public GameObject shieldPrefab;
 
     public float acceleration;
     public float maxSpeed;
@@ -22,7 +25,6 @@ public class Ship : MonoBehaviour
 
     [HideInInspector] ParticleSystem thrustParticles;
 
-    public bool isGoodGuy = true;
     public List<string> goodSentences;
     public List<string> badSentences;
     public float secondsBetweenLetters;
@@ -49,7 +51,7 @@ public class Ship : MonoBehaviour
     }
     public void FireProjectile()
     {
-        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
+        GameObject projectile = Instantiate(damageProjectilePrefab, projectileSpawnPoint.position, transform.rotation);
         projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
         projectile.GetComponent<Projectile>().GetFired(gameObject);
         Destroy(projectile, 4);
@@ -86,7 +88,7 @@ public class Ship : MonoBehaviour
         FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
     }
 
-    public void ShootSentence()
+    public void ShootSentence(bool isGoodGuy)
     {
         int rand = 0;
         string sentenceToShoot = "";
@@ -102,10 +104,10 @@ public class Ship : MonoBehaviour
             sentenceToShoot = badSentences[rand];
         }
 
-        StartCoroutine(ShootSentenceCo(sentenceToShoot));
+        StartCoroutine(ShootSentenceCo(sentenceToShoot, isGoodGuy));
     }
 
-    private IEnumerator ShootSentenceCo(string sentence)
+    private IEnumerator ShootSentenceCo(string sentence, bool isGoodGuy)
     {
         string newSentence = sentence;
         print(transform.rotation.z);
@@ -118,23 +120,55 @@ public class Ship : MonoBehaviour
 
         foreach (char character in newSentence)
         {
-            GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
-            projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
-            projectile.GetComponent<Projectile>().GetFired(gameObject);
-            projectile.GetComponent<Projectile>().letter.SetText(character.ToString());
+            GameObject projectile;
 
             if (isGoodGuy)
             {
-                projectile.GetComponent<Projectile>().SwitchToGoodGuyFont();
+                projectile = Instantiate(convertProjectilePrefab, projectileSpawnPoint.position, transform.rotation);
             }
             else
             {
-                projectile.GetComponent<Projectile>().SwitchToBadGuyFont();
+                projectile = Instantiate(damageProjectilePrefab, projectileSpawnPoint.position, transform.rotation);
             }
 
+            projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
+            projectile.GetComponent<Projectile>().GetFired(gameObject);
+            projectile.GetComponent<Projectile>().letter.SetText(character.ToString());
             projectile.transform.eulerAngles = Vector3.zero;
             Destroy(projectile, 4);
             yield return new WaitForSeconds(secondsBetweenLetters);
         }
+    }
+
+    public void ShootConvert() //Good Guy 1
+    {
+        ShootSentence(true);
+    }
+
+    public void ShootShield() //Good Guy 2
+    {
+        GameObject shield = Instantiate(shieldPrefab, transform.position, transform.rotation, null);
+        shield.GetComponent<CircleShield>().Init("Not today, Honey - Not today :)", true);
+        shield.GetComponent<FollowTarget>().target = transform;
+    }
+
+    public void ShootBackupBuddy() //Good Guy 3
+    {
+
+    }
+
+    public void ShootDamage()  // Bad Guy 1
+    {
+        ShootSentence(false);
+    }
+
+    public void ShootSpaceRage() // Bad Guy 2
+    {
+
+    }
+
+    public void ShootCensorBeam() // Bad Guy 3
+    {
+
     }
 }

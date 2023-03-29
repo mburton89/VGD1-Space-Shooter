@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShip : Ship
-{
+{ 
     void Update()
     {
         FollowMouse();
@@ -18,13 +18,37 @@ public class PlayerShip : Ship
         }
         if (Input.GetMouseButtonDown(0))
         {
-            //FireProjectile();
-            ShootSentence();
+            //ShootSentence();
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            isGoodGuy = !isGoodGuy;
+            ShootConvert();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ShootShield();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ShootBackupBuddy();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ShootDamage();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            ShootSpaceRage();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            ShootCensorBeam();
         }
     }
     void FollowMouse()

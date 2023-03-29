@@ -1059,8 +1059,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody2D: {fileID: 1004388754}
-  projectilePrefab: {fileID: 7892308106377166166, guid: 0b8c770ae29e345429d194a8011b767b, type: 3}
+  convertProjectilePrefab: {fileID: 7892308106377166166, guid: 0b8c770ae29e345429d194a8011b767b, type: 3}
+  damageProjectilePrefab: {fileID: 7892308106377166166, guid: 6a0e717e67c665c43af61aedf577c699, type: 3}
   projectileSpawnPoint: {fileID: 1142608367}
+  shieldPrefab: {fileID: 7615899763061922769, guid: 22d42f6f76605044f886940c6d01ecd1, type: 3}
   acceleration: 4
   maxSpeed: 10
   maxArmor: 3
@@ -1069,7 +1071,6 @@ MonoBehaviour:
   currentSpeed: 0
   currentArmor: 0
   canShoot: 0
-  isGoodGuy: 1
   goodSentences:
   - Hey Whats up?
   - Howdy Partner
@@ -6535,7 +6536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1768531915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6859,13 +6860,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3839687135679874372, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
+      propertyPath: damageProjectilePrefab
+      value: 
+      objectReference: {fileID: 7892308106377166166, guid: 6a0e717e67c665c43af61aedf577c699, type: 3}
+    - target: {fileID: 3839687135679874372, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
+      propertyPath: convertProjectilePrefab
+      value: 
+      objectReference: {fileID: 7892308106377166166, guid: 0b8c770ae29e345429d194a8011b767b, type: 3}
     - target: {fileID: 3839687135679874379, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
       propertyPath: m_Name
       value: EnemyShip - Shooter
       objectReference: {fileID: 0}
     - target: {fileID: 3839687135679874379, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fd999925547f94683dfefe21e608bb, type: 3}

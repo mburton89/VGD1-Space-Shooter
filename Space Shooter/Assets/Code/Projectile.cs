@@ -6,7 +6,7 @@ using TMPro;
 public class Projectile : MonoBehaviour
 {
     public int damageToGive;
-    GameObject firingShip;
+    [HideInInspector] public GameObject firingShip;
     public TextMeshProUGUI letter;
     public AudioSource blipSound;
     public AudioClip goodBlipSound;
