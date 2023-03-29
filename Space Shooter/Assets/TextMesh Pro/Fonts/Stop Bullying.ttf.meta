@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0e33cb7001d9e8543bc559a54f2df28e
+guid: 22121ef843b17a7468edcc191dfd58e3
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - comic andy
+  - Stop Bullying
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
