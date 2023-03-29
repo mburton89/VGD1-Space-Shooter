@@ -43,10 +43,6 @@ public class HUD : MonoBehaviour
         {
             dialogueCloseTimer = 5;
         }
-        else
-        {
-            Debug.Log("Something has gone horribly wrong with dialogueSpeakingTimer!");
-        }
 
         // Checks the Closing Timer. Counts down timer for delay to close the dialogue window. - KR
         if (dialogueCloseTimer > 0)
@@ -56,10 +52,6 @@ public class HUD : MonoBehaviour
         else if (dialogueCloseTimer <= 0)
         {
             //StartCoroutine(CloseDialogue); TODO - Need to decide on how to write CloseDialogue Method. - KR
-        }
-        else
-        {
-            Debug.Log("Something has gone horribly wrong with dialogueCloseTimer!");
         }
     }
 
