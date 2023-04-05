@@ -110,6 +110,7 @@ public class Ship : MonoBehaviour
         }
 
         StartCoroutine(ShootSentenceCo(sentenceToShoot, isGoodGuy));
+        HUD.Instance.DisplayDialogue(HUD.CharacterEnum.grace, "Grace", sentenceToShoot, 1f);
     }
 
     private IEnumerator ShootSentenceCo(string sentence, bool isGoodGuy)

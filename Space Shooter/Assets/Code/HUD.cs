@@ -24,6 +24,14 @@ public class HUD : MonoBehaviour
     public float dialogueSpeakingTimer;
     public float dialogueCloseTimer;
 
+    public List<Sprite> portraits;
+
+    public enum CharacterEnum
+    {
+        grace,
+        jeffery
+    }
+
     // TODO - May need to add colors to choose from depending on who is speaking for dialogue background. - KR
 
     private void Awake()
@@ -67,13 +75,13 @@ public class HUD : MonoBehaviour
     }
 
     // Method that updates the HUD with a character image, character name label, and character dialogue. - KR
-    public void DisplayDialogue(Image speakingCharacter, string speakingCharacterNameDisplay, string spokenDialogue, float speakingTime)
+    public void DisplayDialogue(CharacterEnum speakingCharacter, string speakingCharacterNameDisplay, string spokenDialogue, float speakingTime)
     {
         dialogueSpeakingTimer = speakingTime;
 
 
         //dialogueBackgroundImage.sprite = ; TODO - Potential to change dialogue box depending on who is speaking. - KR
-        speakingCharacterPortrait.sprite = speakingCharacter.sprite;
+        speakingCharacterPortrait.sprite = portraits[(int)speakingCharacter];
         speakingCharacterName.SetText(speakingCharacterNameDisplay);
         dialogueText.SetText(spokenDialogue);
     }
