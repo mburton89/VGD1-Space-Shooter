@@ -156,7 +156,7 @@ public class Ship : MonoBehaviour
     public void ShootShield() //Good Guy 2
     {
         GameObject shield = Instantiate(shieldPrefab, transform.position, transform.rotation, null);
-        shield.GetComponent<CircleShield>().Init("Not today, Honey - Not today :)", true);
+        shield.GetComponent<CircleShield>().Init("Not today, Honey :)", true);
         shield.GetComponent<FollowTarget>().target = transform;
         canUseSentenceAbility = false;
         StartCoroutine(StartCooldown());
@@ -176,7 +176,7 @@ public class Ship : MonoBehaviour
     public void ShootSpaceRage() // Bad Guy 2
     {
         GameObject shield = Instantiate(badShieldPrefab, transform.position, transform.rotation, null);
-        shield.GetComponent<CircleShield>().Init("Get outta the way fool!)", true);
+        shield.GetComponent<CircleShield>().Init("Get outta the way fool!", true);
         shield.GetComponent<FollowTarget>().target = transform;
 
         canUseSentenceAbility = false;

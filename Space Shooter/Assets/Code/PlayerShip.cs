@@ -12,12 +12,14 @@ public class PlayerShip : Ship
 
     void HandleInput()
     {
-        if (!canUseSentenceAbility) return;
 
         if (Input.GetMouseButton(1))
         {
             Thrust();
         }
+
+        if (!canUseSentenceAbility) return;
+
         if (Input.GetMouseButtonDown(0))
         {
             //ShootSentence();

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7615899763061922771}
   - component: {fileID: 7615899763061922770}
   m_Layer: 0
-  m_Name: CircleShield
+  m_Name: GoodCircleShield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,4 +60,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deflectLetterPrefab: {fileID: 189460334358522558, guid: e0e427e9389424d439b81255f2fd851b, type: 3}
   spaceRageLetterPrefab: {fileID: 189460334358522558, guid: e0e427e9389424d439b81255f2fd851b, type: 3}
-  secondsBetweenLetters: 0.07
+  secondsBetweenLetters: 0.112

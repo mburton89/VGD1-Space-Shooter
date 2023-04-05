@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 189460334358522529}
   - component: {fileID: 189460334358522528}
   m_Layer: 0
-  m_Name: Circle Letter
+  m_Name: Good Circle Letter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: A
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0e8305ca74545424aa5d7e64b45fa304, type: 2}
-  m_sharedMaterial: {fileID: 4873996734486567654, guid: 0e8305ca74545424aa5d7e64b45fa304, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 80009188fc42d1148836531d0975707b, type: 2}
+  m_sharedMaterial: {fileID: -814548968891349114, guid: 80009188fc42d1148836531d0975707b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
