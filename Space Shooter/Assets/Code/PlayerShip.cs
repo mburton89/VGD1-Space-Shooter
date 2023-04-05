@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShip : Ship
-{
-    public int healValue;
-
+{ 
     void Update()
     {
         FollowMouse();
@@ -14,13 +12,47 @@ public class PlayerShip : Ship
 
     void HandleInput()
     {
+
         if (Input.GetMouseButton(1))
         {
             Thrust();
         }
+
+        if (!canUseSentenceAbility) return;
+
         if (Input.GetMouseButtonDown(0))
         {
-            FireProjectile();
+            //ShootSentence();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            ShootConvert();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            ShootShield();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            ShootBackupBuddy();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ShootDamage();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            ShootSpaceRage();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            ShootCensorBeam();
         }
     }
     void FollowMouse()
@@ -30,19 +62,5 @@ public class PlayerShip : Ship
         Vector2 directionToFace = new Vector2(
             mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
         transform.up = directionToFace;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("HealthPack"))
-        {
-            currentArmor += healValue;
-            HUD.Instance.DisplayPlayerHealth(currentArmor, maxArmor);
-
-            if (currentArmor > maxArmor)
-            {
-                currentArmor = maxArmor;
-            }
-        }
     }
 }

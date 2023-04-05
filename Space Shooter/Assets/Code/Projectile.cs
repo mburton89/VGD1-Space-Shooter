@@ -1,11 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Projectile : MonoBehaviour
 {
     public int damageToGive;
-    GameObject firingShip;
+    [HideInInspector] public GameObject firingShip;
+    public TextMeshProUGUI letter;
+    public AudioSource blipSound;
+    public AudioClip goodBlipSound;
+    public AudioClip badBlipSound;
+
+    public TMP_FontAsset goodGuyFont;
+    public TMP_FontAsset badGuyFont;
+
+    [HideInInspector] public bool isDeflecting;
+
+    private void Start()
+    {
+        blipSound.pitch = Random.Range(.7f, 1.4f);
+        blipSound.Play();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,5 +41,19 @@ public class Projectile : MonoBehaviour
     public void GetFired(GameObject firer)
     {
         firingShip = firer;
+    }
+
+    public void SwitchToGoodGuyFont()
+    {
+        blipSound.clip = goodBlipSound;
+        letter.font = goodGuyFont;
+        letter.color = Color.white;
+    }
+
+    public void SwitchToBadGuyFont()
+    {
+        blipSound.clip = badBlipSound;
+        letter.font = badGuyFont;
+        letter.color = Color.red;
     }
 }
