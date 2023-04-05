@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemyShip : Ship
 {
-    Transform target;
+    [HideInInspector] public Transform target;
     public bool canFireAtPlayer;
 
     void Start()
     {
+
         target = FindObjectOfType<PlayerShip>().transform;
     }
 
@@ -32,10 +33,10 @@ public class EnemyShip : Ship
         }
     }
 
-    void FlyTowardPlayer()
+    public void FlyTowardPlayer()
     {
-        Vector2 directionToFace = new Vector2(
-            target.position.x - transform.position.x, target.position.y - transform.position.y);
+
+        Vector2 directionToFace = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
         transform.up = directionToFace;
         Thrust();
     }
