@@ -15,9 +15,11 @@ public class Projectile : MonoBehaviour
     public TMP_FontAsset goodGuyFont;
     public TMP_FontAsset badGuyFont;
 
+    [HideInInspector] public bool isDeflecting;
+
     private void Start()
     {
-        blipSound.pitch = Random.Range(.8f, 1.2f);
+        blipSound.pitch = Random.Range(.7f, 1.4f);
         blipSound.Play();
     }
 

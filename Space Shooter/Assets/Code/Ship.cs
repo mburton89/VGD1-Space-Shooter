@@ -11,6 +11,7 @@ public class Ship : MonoBehaviour
     public Transform projectileSpawnPoint;
 
     public GameObject shieldPrefab;
+    public GameObject badShieldPrefab;
 
     public float acceleration;
     public float maxSpeed;
@@ -29,10 +30,14 @@ public class Ship : MonoBehaviour
     public List<string> badSentences;
     public float secondsBetweenLetters;
 
+    public float cooldownDuration = 1.0f;
+    [HideInInspector] public bool canUseSentenceAbility;
+
     private void Awake()
     {
         currentArmor = maxArmor;
         canShoot = true;
+        canUseSentenceAbility = true;
         thrustParticles = GetComponentInChildren<ParticleSystem>();
     }
 
@@ -138,11 +143,14 @@ public class Ship : MonoBehaviour
             Destroy(projectile, 4);
             yield return new WaitForSeconds(secondsBetweenLetters);
         }
+
+        canUseSentenceAbility = true;
     }
 
     public void ShootConvert() //Good Guy 1
     {
         ShootSentence(true);
+        canUseSentenceAbility = false;
     }
 
     public void ShootShield() //Good Guy 2
@@ -150,6 +158,8 @@ public class Ship : MonoBehaviour
         GameObject shield = Instantiate(shieldPrefab, transform.position, transform.rotation, null);
         shield.GetComponent<CircleShield>().Init("Not today, Honey - Not today :)", true);
         shield.GetComponent<FollowTarget>().target = transform;
+        canUseSentenceAbility = false;
+        StartCoroutine(StartCooldown());
     }
 
     public void ShootBackupBuddy() //Good Guy 3
@@ -160,15 +170,29 @@ public class Ship : MonoBehaviour
     public void ShootDamage()  // Bad Guy 1
     {
         ShootSentence(false);
+        canUseSentenceAbility = false;
     }
 
     public void ShootSpaceRage() // Bad Guy 2
     {
+        GameObject shield = Instantiate(badShieldPrefab, transform.position, transform.rotation, null);
+        shield.GetComponent<CircleShield>().Init("Get outta the way fool!)", true);
+        shield.GetComponent<FollowTarget>().target = transform;
 
+        canUseSentenceAbility = false;
+        StartCoroutine(StartCooldown());
     }
 
     public void ShootCensorBeam() // Bad Guy 3
     {
 
+    }
+
+    public IEnumerator StartCooldown()
+    {
+        canUseSentenceAbility = false;
+        print("Space Rage in CoolDown");
+        yield return new WaitForSeconds(cooldownDuration);
+        canUseSentenceAbility = true;
     }
 }

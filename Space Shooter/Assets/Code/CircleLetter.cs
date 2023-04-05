@@ -18,6 +18,6 @@ public class CircleLetter: MonoBehaviour
     {
         transform.Rotate(new Vector3(0, 0, 1) * rotationSpeed * Time.deltaTime);
 
-        print(transform.rotation.eulerAngles.z);
+        //print(transform.rotation.eulerAngles.z);
     }
 }
