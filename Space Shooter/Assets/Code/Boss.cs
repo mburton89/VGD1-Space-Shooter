@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Boss : EnemyShip
 {
-    
-    public bool canUseAbility = false;   
+
+    public bool canUseAbility;   
     Transform bossLocation;
     Transform playerLocation;
     float distanceBetweenBossAndPlayer;
     public float abilityDistanceLimit;
     public float abilityCooldownTime;
 
-    [HideInInspector] public bool isCooldownOver;
+    public bool isCooldownOver;
+
 
     void Update()
     {
@@ -26,7 +27,6 @@ public class Boss : EnemyShip
         if (collision.gameObject.GetComponent<PlayerShip>())
         {
             collision.gameObject.GetComponent<PlayerShip>().TakeDamage(1);
-            Explode();
         }
     }
    
@@ -36,25 +36,25 @@ public class Boss : EnemyShip
         bossLocation = FindObjectOfType<Boss>().transform;
         distanceBetweenBossAndPlayer = Vector3.Distance(playerLocation.position, bossLocation.position);
 
-        if (distanceBetweenBossAndPlayer < abilityDistanceLimit && isCooldownOver == true)
+        if (distanceBetweenBossAndPlayer < abilityDistanceLimit)
         {
            canUseAbility = true;          
         }
 
-        StartCoroutine(AbilityCooldown());
+        
     }
 
     public void UseAbility()
     {
-        
-        if (canUseAbility == true)
-        {
-        
-            print("Ability Used");
-            canUseAbility = false;
-            
-        }
 
+        if (canUseAbility && isCooldownOver)
+        {
+
+            print("Ability Used");
+            StartCoroutine(AbilityCooldown());
+            canUseAbility = false;
+        }
+      
     }
 
     private IEnumerator AbilityCooldown()

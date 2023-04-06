@@ -5171,6 +5171,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss - Spinning Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 4336417796591384127, guid: f27c61b87fece44439f9eec320c104e4, type: 3}
+      propertyPath: isCooldownOver
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4336417796591384127, guid: f27c61b87fece44439f9eec320c104e4, type: 3}
+      propertyPath: abilityCooldownTime
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5602454214451736510, guid: f27c61b87fece44439f9eec320c104e4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.1
