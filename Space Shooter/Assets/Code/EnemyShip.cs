@@ -6,6 +6,7 @@ public class EnemyShip : Ship
 {
     Transform target;
     public bool canFireAtPlayer;
+    [HideInInspector] public bool isConverted;
 
     void Start()
     {
@@ -17,6 +18,12 @@ public class EnemyShip : Ship
         if (collision.gameObject.GetComponent<PlayerShip>())
         {
             collision.gameObject.GetComponent<PlayerShip>().TakeDamage(1);
+            Explode();
+        }
+
+        if (collision.gameObject.GetComponent<EnemyShip>() && isConverted)
+        {
+            collision.gameObject.GetComponent<EnemyShip>().Explode();
             Explode();
         }
     }
@@ -38,5 +45,23 @@ public class EnemyShip : Ship
             target.position.x - transform.position.x, target.position.y - transform.position.y);
         transform.up = directionToFace;
         Thrust();
+    }
+    public void TryConvert()
+    {
+        int rand = Random.Range(0, 10);
+        if (rand == 5)
+        {
+            isConverted = true;
+            EnemyShip[] enemyShips = FindObjectsOfType<EnemyShip>();
+
+            foreach (EnemyShip enemyShip in enemyShips)
+            {
+                if (enemyShip != this)
+                {
+                    target = enemyShip.transform;
+                    break;
+                }
+            }
+        }
     }
 }

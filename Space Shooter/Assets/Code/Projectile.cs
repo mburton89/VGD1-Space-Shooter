@@ -17,6 +17,8 @@ public class Projectile : MonoBehaviour
 
     [HideInInspector] public bool isDeflecting;
 
+    public bool isConverting;
+
     private void Start()
     {
         blipSound.pitch = Random.Range(.7f, 1.4f);
@@ -25,7 +27,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)
+        if (isConverting && collision.GetComponent<EnemyShip>())
+        {
+            collision.GetComponent<EnemyShip>().TryConvert();
+            Destroy(gameObject);
+        }
+        else if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)
         {
             collision.GetComponent<Ship>().TakeDamage(damageToGive);
             Destroy(gameObject);

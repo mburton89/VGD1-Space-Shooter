@@ -393,6 +393,7 @@ MonoBehaviour:
   goodGuyFont: {fileID: 11400000, guid: 0e8305ca74545424aa5d7e64b45fa304, type: 2}
   badGuyFont: {fileID: 11400000, guid: 1d64cfab1dab28249a8c6af06555a3c7, type: 2}
   isDeflecting: 0
+  isConverting: 1
 --- !u!82 &4663999599229043266
 AudioSource:
   m_ObjectHideFlags: 0

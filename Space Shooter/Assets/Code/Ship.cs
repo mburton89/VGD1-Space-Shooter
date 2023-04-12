@@ -24,7 +24,8 @@ public class Ship : MonoBehaviour
 
     [HideInInspector] public bool canShoot;
 
-    [HideInInspector] ParticleSystem thrustParticles;
+    //[HideInInspector] ParticleSystem thrustParticles;
+    public List<ParticleSystem> thrustParticleSystems;
 
     public List<string> goodSentences;
     public List<string> badSentences;
@@ -38,7 +39,7 @@ public class Ship : MonoBehaviour
         currentArmor = maxArmor;
         canShoot = true;
         canUseSentenceAbility = true;
-        thrustParticles = GetComponentInChildren<ParticleSystem>();
+        //thrustParticles = GetComponentInChildren<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -52,7 +53,12 @@ public class Ship : MonoBehaviour
     public void Thrust()
     {
         rigidbody2D.AddForce(transform.up * acceleration);
-        thrustParticles.Emit(1);
+        //thrustParticles.Emit(1);
+        
+        foreach(ParticleSystem particleSystem in thrustParticleSystems)
+        {
+            particleSystem.Emit(1);
+        }
     }
     public void FireProjectile()
     {
