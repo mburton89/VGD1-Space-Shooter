@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class PlayerShip : Ship
@@ -7,7 +8,6 @@ public class PlayerShip : Ship
     public float turnSpeed;
     void Update()
     {
-        //FollowMouse();
         HandleInput();
     }
 
@@ -22,23 +22,15 @@ public class PlayerShip : Ship
         {
             controlRotation();
         }
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
-            FireProjectile();
-        }
+            PlayerFireProjectile();
+        }*/
         /*//old movement
         if (Input.GetMouseButtonDown(1))
         {
             Thrust();
         }*/
-    }
-    void FollowMouse()
-    {
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(
-            new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
-        Vector2 directionToFace = new Vector2(
-            mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-        transform.up = directionToFace;
     }
     void controlRotation()
     {
@@ -50,5 +42,19 @@ public class PlayerShip : Ship
         {
             transform.Rotate(new Vector3(0, 0, -turnSpeed));
         }
+    }
+    private IEnumerator FireRateBuffer()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(fireRate);
+        canShoot = true;
+    }
+    public void PlayerFireProjectile()
+    {
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, transform.rotation);
+        projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
+        projectile.GetComponent<Projectile>().GetFired(gameObject);
+        Destroy(projectile, 4);
+        StartCoroutine(FireRateBuffer());
     }
 }
