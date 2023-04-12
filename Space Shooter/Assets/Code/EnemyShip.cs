@@ -35,7 +35,8 @@ public class EnemyShip : Ship
 
         if (canFireAtPlayer && canShoot)
         {
-            FireProjectile();
+            ShootDamage();
+            FireRateCoolDown();
         }
     }
 
@@ -46,6 +47,7 @@ public class EnemyShip : Ship
         transform.up = directionToFace;
         Thrust();
     }
+
     public void TryConvert()
     {
         int rand = Random.Range(0, 10);

@@ -69,6 +69,12 @@ public class Ship : MonoBehaviour
         StartCoroutine(FireRateBuffer());
     }
 
+    public void FireRateCoolDown()
+    {
+        StartCoroutine(FireRateBuffer());
+    }
+
+
     private IEnumerator FireRateBuffer()
     {
         canShoot = false;

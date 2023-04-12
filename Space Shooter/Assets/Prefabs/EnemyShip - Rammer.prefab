@@ -4999,7 +4999,11 @@ MonoBehaviour:
   thrustParticleSystems:
   - {fileID: 1655238398}
   goodSentences: []
-  badSentences: []
+  badSentences:
+  - 'Give us your S***! '
+  - Watch it, punk!
+  - "Hand over the merch and nobody gets hurt\u2026 SIKE!"
+  - 'Tell my friend he owes me 100 bucks! '
   secondsBetweenLetters: 0
   cooldownDuration: 1
   canUseSentenceAbility: 0

@@ -4991,16 +4991,20 @@ MonoBehaviour:
   acceleration: 1
   maxSpeed: 3
   maxArmor: 3
-  fireRate: 2
-  projectileSpeed: 60
+  fireRate: 4
+  projectileSpeed: 80
   currentSpeed: 0
   currentArmor: 0
   canShoot: 0
   thrustParticleSystems:
   - {fileID: 158000706}
   goodSentences: []
-  badSentences: []
-  secondsBetweenLetters: 0
+  badSentences:
+  - 'Give us your S***! '
+  - Watch it, punk!
+  - "Hand over the merch and nobody gets hurt\u2026 SIKE!"
+  - 'Tell my friend he owes me 100 bucks! '
+  secondsBetweenLetters: 0.1
   cooldownDuration: 1
   canUseSentenceAbility: 0
   canFireAtPlayer: 1
