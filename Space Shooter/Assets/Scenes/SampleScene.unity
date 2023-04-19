@@ -5972,6 +5972,7 @@ MonoBehaviour:
   secondsBetweenLetters: 0.05
   cooldownDuration: 7.5
   canUseSentenceAbility: 0
+  turnSpeed: 1.5
 --- !u!1001 &1045881497
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6147,6 +6148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1131766594}
+  - component: {fileID: 1131766595}
   m_Layer: 0
   m_Name: Shooster Pivot
   m_TagString: Untagged
@@ -6170,6 +6172,18 @@ Transform:
   m_Father: {fileID: 1004388753}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1131766595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131766593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e1211d0728b3b438f6abc72a6acfa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1142608366
 GameObject:
   m_ObjectHideFlags: 0
@@ -11519,7 +11533,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 8dbcf98029d16034fa93b0f98c3fbb55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11672,7 +11686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3839687135679874379, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
@@ -16861,6 +16875,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyShip - Rammer
       objectReference: {fileID: 0}
+    - target: {fileID: 3472790249586634180, guid: 5ab133c48d681ac449660e667bf95629, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab133c48d681ac449660e667bf95629, type: 3}
 --- !u!1001 &3839687135137675916
@@ -16917,6 +16935,10 @@ PrefabInstance:
     - target: {fileID: 3839687135679874379, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
       propertyPath: m_Name
       value: EnemyShip - Shooter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3839687135679874379, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
