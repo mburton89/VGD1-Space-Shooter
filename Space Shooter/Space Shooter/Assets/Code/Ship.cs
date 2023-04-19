@@ -69,12 +69,6 @@ public class Ship : MonoBehaviour
         StartCoroutine(FireRateBuffer());
     }
 
-    public void FireRateCoolDown()
-    {
-        StartCoroutine(FireRateBuffer());
-    }
-
-
     private IEnumerator FireRateBuffer()
     {
         canShoot = false;
@@ -129,24 +123,11 @@ public class Ship : MonoBehaviour
     {
         string newSentence = sentence;
         print(transform.rotation.z);
-
-        if (GetComponentInChildren<DetatchedAim>()) // if we have a turret
+        if (transform.rotation.z < 0)
         {
-            if (GetComponentInChildren<DetatchedAim>().transform.rotation.z < 0)
-            {
-                char[] stringArray = newSentence.ToCharArray();
-                Array.Reverse(stringArray);
-                newSentence = new string(stringArray);
-            }
-        }
-        else // if we DONT have a turret
-        {
-            if (transform.rotation.z < 0)
-            {
-                char[] stringArray = newSentence.ToCharArray();
-                Array.Reverse(stringArray);
-                newSentence = new string(stringArray);
-            }
+            char[] stringArray = newSentence.ToCharArray();
+            Array.Reverse(stringArray);
+            newSentence = new string(stringArray);
         }
 
         foreach (char character in newSentence)
@@ -162,7 +143,7 @@ public class Ship : MonoBehaviour
                 projectile = Instantiate(damageProjectilePrefab, projectileSpawnPoint.position, transform.rotation);
             }
 
-            projectile.GetComponent<Rigidbody2D>().AddForce(projectileSpawnPoint.transform.up * projectileSpeed);
+            projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
             projectile.GetComponent<Projectile>().GetFired(gameObject);
             projectile.GetComponent<Projectile>().letter.SetText(character.ToString());
             projectile.transform.eulerAngles = Vector3.zero;

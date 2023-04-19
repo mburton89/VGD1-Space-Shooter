@@ -37,7 +37,6 @@ public class HUD : MonoBehaviour
         vic,
         platta,
         queen,
-        laboulangerie,
         hwhat,
         jimothy,
         pirate1,
@@ -167,15 +166,9 @@ public class HUD : MonoBehaviour
         {
             speakingCharacterPortrait.sprite = portraits[(int)CharacterEnum.queen];
             speakingCharacterName.SetText("The Queen Bee");
-            dialogueText.SetText("You should hive minded your own beeswax!"); // TODO: Get actual dialogue. -KR
+            dialogueText.SetText("Bzzzt! Beez is murder, and beez is good!"); // TODO: Get actual dialogue. -KR
         }
-        else if (currentWave == 16)
-        {
-            speakingCharacterPortrait.sprite = portraits[(int)CharacterEnum.laboulangerie];
-            speakingCharacterName.SetText("La Boulangerie");
-            dialogueText.SetText("Hon! Hon! Hon!!"); // TODO: Get actual dialogue. -KR
-        }
-        else if (currentWave >= 17 && currentWave <= 19)
+        else if (currentWave >= 16 && currentWave <= 19)
         {
             // A variable to store the random number from the randomizer method. - KR
             int speakingPilot = Randomizer(0, 1);
