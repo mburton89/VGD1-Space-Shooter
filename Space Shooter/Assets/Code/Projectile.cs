@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        blipSound.pitch = Random.Range(.7f, 1.4f);
+        blipSound.pitch = Random.Range(.8f, 1.3f);
         blipSound.Play();
     }
 

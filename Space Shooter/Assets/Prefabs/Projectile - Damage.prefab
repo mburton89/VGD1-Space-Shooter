@@ -385,12 +385,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageToGive: 1
+  firingShip: {fileID: 0}
   letter: {fileID: 2630239980352977958}
   blipSound: {fileID: 4663999599229043266}
   goodBlipSound: {fileID: 8300000, guid: 292613e24fb111747aa9e68cd68e3efc, type: 3}
   badBlipSound: {fileID: 8300000, guid: fbc4c13ce96042846a56fd22b2f93f1a, type: 3}
   goodGuyFont: {fileID: 11400000, guid: 0e8305ca74545424aa5d7e64b45fa304, type: 2}
   badGuyFont: {fileID: 11400000, guid: 1d64cfab1dab28249a8c6af06555a3c7, type: 2}
+  isDeflecting: 0
+  isConverting: 0
 --- !u!82 &4663999599229043266
 AudioSource:
   m_ObjectHideFlags: 0
@@ -401,10 +404,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 292613e24fb111747aa9e68cd68e3efc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 357fc2c4a2014004aa3b127f0b97100b, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 0.29
   Loop: 0
   Mute: 0
   Spatialize: 0
