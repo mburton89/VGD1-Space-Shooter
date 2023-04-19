@@ -5950,7 +5950,7 @@ MonoBehaviour:
   badShieldPrefab: {fileID: 7615899763061922769, guid: 0fffec9c8ac8afd47a42909e5b5350d1, type: 3}
   acceleration: 4
   maxSpeed: 10
-  maxArmor: 3
+  maxArmor: 300
   fireRate: 1
   projectileSpeed: 100
   currentSpeed: 0
@@ -11802,7 +11802,29 @@ MonoBehaviour:
   dialogueCloseTimer: 1
   portraits:
   - {fileID: 21300000, guid: 990d2192c1efd244389f3b6abd6a7c8f, type: 3}
-  - {fileID: 21300000, guid: 990d2192c1efd244389f3b6abd6a7c8f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
+  pirateDialogueList:
+  - Swiggity Swooty!
+  - I'mma stab dis b****!
+  - Gimme da cash!
+  hiveDialogueList:
+  - I'm the bees knees!
+  - Stinger? I barely know her!
+  - She insulted our fat queen!
+  defenderDialogueList:
+  - You didn't pay the donut tax!
+  - Call an ambulance! But not for me!
+  - Time to bust a cap!
 --- !u!1 &1808664100
 GameObject:
   m_ObjectHideFlags: 0
