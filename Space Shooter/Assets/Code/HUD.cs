@@ -11,6 +11,9 @@ public class HUD : MonoBehaviour
     public Image playerHealthBarFill;
     public TextMeshProUGUI waveText;
 
+    // Gameobject variable to store Dialoguebox gameobject to toggle activity.
+    public GameObject canvasDialoguebox;
+
     // Image for the character speaking (potentially animated between a few images). - KR
     public Image speakingCharacterPortrait;
     public Image dialogueBackgroundImage;
@@ -18,11 +21,6 @@ public class HUD : MonoBehaviour
     // Text boxs where a name, and the character's dialogue will go. - KR
     public TextMeshProUGUI speakingCharacterName;
     public TextMeshProUGUI dialogueText;
-
-    /* Variables for a timer to measure dialogue speaking length (potentially can be used to implent char typing for
-       dialogue). - KR */
-    public float dialogueSpeakingTimer;
-    public float dialogueCloseTimer;
 
     public List<Sprite> portraits;
 
@@ -60,30 +58,6 @@ public class HUD : MonoBehaviour
         WaveStartDialouge(1);
     }
 
-    // Update has been added to use a timer to determine if a character is speaking. - KR
-    public void Update()
-    {
-        // Checks the Speaking Timer. Counts down timer for delay to close the dialogue window. - KR
-        if (dialogueSpeakingTimer > 0)
-        {
-            dialogueSpeakingTimer -= Time.deltaTime;
-        }
-        else if (dialogueSpeakingTimer <= 0 && dialogueCloseTimer < 0)
-        {
-            dialogueCloseTimer = 5;
-        }
-
-        // Checks the Closing Timer. Counts down timer for delay to close the dialogue window. - KR
-        if (dialogueCloseTimer > 0)
-        {
-            dialogueCloseTimer -= Time.deltaTime;
-        }
-        else if (dialogueCloseTimer <= 0)
-        {
-            //StartCoroutine(CloseDialogue); TODO - Need to decide on how to write CloseDialogue Method. - KR
-        }
-    }
-
     public void DisplayPlayerHealth(int currentArmor, int maxArmor)
     {
         float healthAmount = (float)currentArmor / (float)maxArmor;
@@ -99,9 +73,11 @@ public class HUD : MonoBehaviour
     // Should cause a dialogue box with a pilot speaking or taunting the player at the start of a new enemy wave. - KR
     public void WaveStartDialouge(int currentWave)
     {
+        canvasDialoguebox.SetActive(true);
+
         /* Currently in the game waves 1-4 and 6-9 should have pirates, wave 5 is Vic Locus, wave 10 is Plata Perry, waves 11-14 have hive drones,
            wave 15 is Queen Bee, waves 16-19 have ESDF pilots, wave 20 is Admiral Hwhat, and the final wave at 21, is Jimothy. - KR*/
-        if(currentWave <= 4 || currentWave >= 6 && currentWave <= 9)
+        if (currentWave <= 4 || currentWave >= 6 && currentWave <= 9)
         {
             // A variable to store the random number from the randomizer method. - KR
             int speakingPilot = Randomizer(0, 1);
@@ -212,14 +188,13 @@ public class HUD : MonoBehaviour
             speakingCharacterName.SetText("Jimothy Jamboree");
             dialogueText.SetText("HERE'S JIMMY!!!"); // TODO: Get actual dialogue. - KR
         }
+
+        StartCoroutine(CloseDialogue());
     }
 
     // Method that updates the HUD with a character image, character name label, and character dialogue. - KR
     public void DisplayDialogue(CharacterEnum speakingCharacter, string speakingCharacterNameDisplay, string spokenDialogue, float speakingTime)
     {
-        dialogueSpeakingTimer = speakingTime;
-
-
         //dialogueBackgroundImage.sprite = ; TODO - Potential to change dialogue box depending on who is speaking. - KR
         speakingCharacterPortrait.sprite = portraits[(int)speakingCharacter];
         speakingCharacterName.SetText(speakingCharacterNameDisplay);
@@ -233,10 +208,11 @@ public class HUD : MonoBehaviour
         return randomNumber;
     }
 
-    /* IEnumerator Method that closes the HUD when dialogueCloseWindow timer expires. - KR
+    //IEnumerator Method that closes the HUD when dialogueCloseWindow timer expires. - KR
     public IEnumerator CloseDialogue()
     {
-        //return;
+        yield return new WaitForSeconds(3);
+        canvasDialoguebox.SetActive(false);
     }
-    */ //TODO - Finish with a count to close the dialogue box. - KR
+    //TODO - Finish with a count to close the dialogue box. - KR
 }

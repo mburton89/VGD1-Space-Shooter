@@ -11794,12 +11794,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealthBarFill: {fileID: 704867260}
   waveText: {fileID: 1451653352}
+  canvasDialoguebox: {fileID: 1168448053}
   speakingCharacterPortrait: {fileID: 524367187}
   dialogueBackgroundImage: {fileID: 889200587}
   speakingCharacterName: {fileID: 520459525}
   dialogueText: {fileID: 1341316577}
-  dialogueSpeakingTimer: 1
-  dialogueCloseTimer: 1
   portraits:
   - {fileID: 21300000, guid: 990d2192c1efd244389f3b6abd6a7c8f, type: 3}
   - {fileID: 21300000, guid: d8f0a3aa94c952a4c9f25d7c63a1170f, type: 3}
