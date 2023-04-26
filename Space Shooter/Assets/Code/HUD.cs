@@ -24,10 +24,19 @@ public class HUD : MonoBehaviour
 
     public List<Sprite> portraits;
 
+    public AudioSource dialogueSound;
+
     // Lists for selecting random dialogue options for different pilot types at the start of a wave.
     public List<string> pirateDialogueList;
     public List<string> hiveDialogueList;
     public List<string> defenderDialogueList;
+
+    public string vicDialogue = "S*** is goin' down!";
+    public string plattaDialogue = "Hand over the goods, and only you get hurt!";
+    public string queenDialogue = "You should hive minded your own beeswax!";
+    public string laboulangerieDialogue = "Hon! Hon! Hon!!";
+    public string hwhatDialogue = "Hwhat, you say?!";
+    public string jimothyDialogue = "HERE'S JIMMY!!!";
 
     public enum CharacterEnum
     {
@@ -80,7 +89,7 @@ public class HUD : MonoBehaviour
         if (currentWave <= 4 || currentWave >= 6 && currentWave <= 9)
         {
             // A variable to store the random number from the randomizer method. - KR
-            int speakingPilot = Randomizer(0, 1);
+            int speakingPilot = IntRandomizer(0, 1);
 
             // Conditional statement that checks the random number and assigns a pilot to the portrait. - KR
             if (speakingPilot <= 0)
@@ -99,25 +108,25 @@ public class HUD : MonoBehaviour
             speakingCharacterName.SetText("Space Pirate");
 
             // Randomize the sentence chosen to be displayed at the start, then set the text.
-            string dialogueChosen = pirateDialogueList[Randomizer(0, pirateDialogueList.Count)];
-            dialogueText.SetText(dialogueChosen);
+            string dialogueChosen = pirateDialogueList[IntRandomizer(0, pirateDialogueList.Count)];
+            StartCoroutine(TypeChars(dialogueChosen,0.9f,1.1f));
         }
         else if (currentWave == 5)
         {
             speakingCharacterPortrait.sprite = portraits[(int)CharacterEnum.vic];
             speakingCharacterName.SetText("Vic Lokus");
-            dialogueText.SetText("S*** is goin' down!");// TODO: Get actual dialogue. -KR
+            StartCoroutine(TypeChars(vicDialogue,0.4f,0.55f));
         }
         else if (currentWave == 10)
         {
             speakingCharacterPortrait.sprite = portraits[(int)CharacterEnum.platta];
             speakingCharacterName.SetText("Platta Perry");
-            dialogueText.SetText("Hand over the goods, and only you get hurt!"); // TODO: Get actual dialogue. - KR
+            StartCoroutine(TypeChars(plattaDialogue,0.55f,.65f));
         }
         else if(currentWave >= 11 && currentWave <= 14)
         {
             // A variable to store the random number from the randomizer method. - KR
-            int speakingPilot = Randomizer(0, 1);
+            int speakingPilot = IntRandomizer(0, 1);
 
             // Conditional statement that checks the random number and assigns a pilot to the portrait. - KR
             if (speakingPilot <= 0)
@@ -136,25 +145,25 @@ public class HUD : MonoBehaviour
             speakingCharacterName.SetText("Hive Drone");
 
             // Randomize the sentence chosen to be displayed at the start, then set the text.
-            string dialogueChosen = hiveDialogueList[Randomizer(0, hiveDialogueList.Count)];
-            dialogueText.SetText(dialogueChosen);
+            string dialogueChosen = hiveDialogueList[IntRandomizer(0, hiveDialogueList.Count)];
+            StartCoroutine(TypeChars(dialogueChosen,1.4f,1.6f));
         }
         else if (currentWave == 15)
         {
             speakingCharacterPortrait.sprite = portraits[(int)CharacterEnum.queen];
             speakingCharacterName.SetText("The Queen Bee");
-            dialogueText.SetText("You should hive minded your own beeswax!"); // TODO: Get actual dialogue. -KR
+            StartCoroutine(TypeChars(queenDialogue,1.2f,1.4f));
         }
         else if (currentWave == 16)
         {
             speakingCharacterPortrait.sprite = portraits[(int)CharacterEnum.laboulangerie];
             speakingCharacterName.SetText("La Boulangerie");
-            dialogueText.SetText("Hon! Hon! Hon!!"); // TODO: Get actual dialogue. -KR
+            StartCoroutine(TypeChars(laboulangerieDialogue,.2f,.4f));
         }
         else if (currentWave >= 17 && currentWave <= 19)
         {
             // A variable to store the random number from the randomizer method. - KR
-            int speakingPilot = Randomizer(0, 1);
+            int speakingPilot = IntRandomizer(0, 1);
 
             // Conditional statement that checks the random number and assigns a pilot to the portrait. - KR
             if (speakingPilot <= 0)
@@ -173,39 +182,46 @@ public class HUD : MonoBehaviour
             speakingCharacterName.SetText("ESDF Pilot");
 
             // Randomize the sentence chosen to be displayed at the start, then set the text.
-            string dialogueChosen = defenderDialogueList[Randomizer(0, defenderDialogueList.Count)];
-            dialogueText.SetText(dialogueChosen);
+            string dialogueChosen = defenderDialogueList[IntRandomizer(0, defenderDialogueList.Count)];
+            StartCoroutine(TypeChars(dialogueChosen,0.65f,0.8f)); ;
         }
         else if (currentWave == 20)
         {
             speakingCharacterPortrait.sprite = portraits[(int)CharacterEnum.hwhat];
             speakingCharacterName.SetText("Admiral Hwhat");
-            dialogueText.SetText("Hwhat, you say?!"); // TODO: Get actual dialogue. -KR
+            StartCoroutine(TypeChars(hwhatDialogue,.5f,.7f));
         }
         else if (currentWave == 21)
         {
             speakingCharacterPortrait.sprite = portraits[(int)CharacterEnum.jimothy];
             speakingCharacterName.SetText("Jimothy Jamboree");
-            dialogueText.SetText("HERE'S JIMMY!!!"); // TODO: Get actual dialogue. - KR
+            StartCoroutine(TypeChars(jimothyDialogue,.85f,1.15f));
         }
+    }
 
+    IEnumerator TypeChars(string dialogue, float minPitch, float maxPitch)
+    {
+        for(int i =0; i < dialogue.Length; i++)
+        {
+            dialogueSound.pitch = FloatRandomizer(minPitch, maxPitch);
+            dialogueSound.Play();
+            dialogueText.SetText(dialogue.Substring(0, i));
+            yield return new WaitForSeconds(0.1f);
+        }
         StartCoroutine(CloseDialogue());
     }
 
-    // Method that updates the HUD with a character image, character name label, and character dialogue. - KR
-    public void DisplayDialogue(CharacterEnum speakingCharacter, string speakingCharacterNameDisplay, string spokenDialogue, float speakingTime)
+    // Method used to randomize a number between the two int variables passed into the argument.
+    private int IntRandomizer(int minNumber, int maxNumber)
     {
-        //dialogueBackgroundImage.sprite = ; TODO - Potential to change dialogue box depending on who is speaking. - KR
-        speakingCharacterPortrait.sprite = portraits[(int)speakingCharacter];
-        speakingCharacterName.SetText(speakingCharacterNameDisplay);
-        dialogueText.SetText(spokenDialogue);
+        int randomInteger = Random.Range(minNumber, maxNumber);
+        return randomInteger;
     }
 
-    // Method used to randomize a number between the two int variables passed into the argument.
-    private int Randomizer(int minNumber, int maxNumber)
+    private float FloatRandomizer(float minPitch, float maxPitch)
     {
-        int randomNumber = Random.Range(minNumber, maxNumber);
-        return randomNumber;
+        float randomFloat = Random.Range(minPitch, maxPitch);
+        return randomFloat;
     }
 
     //IEnumerator Method that closes the HUD when dialogueCloseWindow timer expires. - KR
@@ -214,5 +230,4 @@ public class HUD : MonoBehaviour
         yield return new WaitForSeconds(3);
         canvasDialoguebox.SetActive(false);
     }
-    //TODO - Finish with a count to close the dialogue box. - KR
 }
