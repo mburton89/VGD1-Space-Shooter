@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerShip : Ship
 {
     public float turnSpeed;
+    [HideInInspector] public int activeWeaponIndex;
     void Update()
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -31,7 +32,24 @@ public class PlayerShip : Ship
 
         if (Input.GetMouseButtonDown(0))
         {
-            //ShootSentence();
+            int activeWeaponIndex = WeaponSwitchManager.Instance.weaponIndex;
+
+            if (activeWeaponIndex == 0)
+            {
+                ShootConvert();
+            }
+            else if (activeWeaponIndex == 1)
+            {
+                ShootShield();
+            }
+            else if (activeWeaponIndex == 2)
+            {
+                ShootDamage();
+            }
+            else if (activeWeaponIndex == 3)
+            {
+                ShootSpaceRage();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
