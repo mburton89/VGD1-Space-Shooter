@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,8 +19,11 @@ public class Ship : MonoBehaviour
     [HideInInspector] public int currentArmor;
 
     [HideInInspector] public bool canShoot;
+    [HideInInspector] public bool canDamagePlayer;
 
     [HideInInspector] ParticleSystem thrustParticles;
+    [HideInInspector] GameObject playerShip;
+    [HideInInspector] Transform playerTransform;
     private void Awake()
     {
         currentArmor = maxArmor;
@@ -59,7 +63,13 @@ public class Ship : MonoBehaviour
     public void TakeDamage(int damageToGive)
     {
         //TODO: play getHitSound
-        currentArmor -= damageToGive;
+        playerShip = GameObject.Find("PlayerShip");
+        Transform playerTransform = playerShip.GetComponent<Transform>();
+        if(playerTransform.position.z == this.transform.position.z)
+        {
+            currentArmor -= damageToGive;
+        }// checks if the enemies should be able to hit player on Z axis
+        
         if (currentArmor <= 0)
         {
             Explode();

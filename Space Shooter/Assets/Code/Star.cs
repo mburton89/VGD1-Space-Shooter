@@ -5,10 +5,13 @@ using UnityEngine;
 public class Star : MonoBehaviour
 {
     GameObject PlayerShip;
+    Transform cameraPosition;
     // Start is called before the first frame update
     void Start()
     {
         PlayerShip = GameObject.Find("PlayerShip");
+        cameraPosition = PlayerShip.GetComponent<Transform>();
+        Debug.Log(cameraPosition.position);
     }
 
     // Update is called once per frame
@@ -18,6 +21,6 @@ public class Star : MonoBehaviour
     }
     void CheckIfVisible()
     {
-
+        //Debug.Log("PlayerShip Position:" + cameraPosition.position);
     }
 }

@@ -11,6 +11,8 @@ public class StarSpawner : MonoBehaviour
     public int maxZ;
     public int minZ;
 
+    public Transform playerTransform;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,4 +25,4 @@ public class StarSpawner : MonoBehaviour
             Instantiate(starPrefab, spawnPosition, transform.rotation, transform);
         }
     }
-}
+}   

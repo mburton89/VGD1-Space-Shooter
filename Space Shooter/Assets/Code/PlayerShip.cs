@@ -42,6 +42,7 @@ public class PlayerShip : Ship
         {
             transform.Rotate(new Vector3(0, 0, -turnSpeed));
         }
+
     }
     private IEnumerator FireRateBuffer()
     {

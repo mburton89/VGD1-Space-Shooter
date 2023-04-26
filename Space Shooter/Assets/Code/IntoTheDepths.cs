@@ -13,9 +13,13 @@ public class IntoTheDepths : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.T))
+        if (Input.GetKey(KeyCode.G))
         {
             TravelDeeper();
+        }
+        if (Input.GetKey(KeyCode.T))
+        {
+            TravelUp();
         }
     }
 
@@ -23,6 +27,12 @@ public class IntoTheDepths : MonoBehaviour
     {
         GameObject playerShip = GameObject.Find("PlayerShip");
         Transform playerTransform = playerShip.GetComponent<Transform>();
-        playerTransform.position += new Vector3(0, 0, 30);
+        playerTransform.position += new Vector3(0, 0, 0.3f);
+    }
+    public void TravelUp()
+    {
+        GameObject playerShip = GameObject.Find("PlayerShip");
+        Transform playerTransform = playerShip.GetComponent<Transform>();
+        playerTransform.position += new Vector3(0, 0, -0.3f);
     }
 }

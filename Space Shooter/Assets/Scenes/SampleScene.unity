@@ -777,6 +777,7 @@ GameObject:
   - component: {fileID: 1004388754}
   - component: {fileID: 1004388755}
   - component: {fileID: 1004388756}
+  - component: {fileID: 1004388757}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -937,6 +938,18 @@ MonoBehaviour:
   currentArmor: 0
   canShoot: 0
   turnSpeed: 1.5
+--- !u!114 &1004388757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004388751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 977713f152fabac4689d6a0ff9fae6ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1065631266
 GameObject:
   m_ObjectHideFlags: 0
@@ -6031,10 +6044,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starPrefab: {fileID: 475920042998737764, guid: da5e4b00d32fb644f9700d87c489501c, type: 3}
-  numberOfStarsToSpawn: 4000
+  numberOfStarsToSpawn: 8000
   maxX: 800
   maxY: 600
-  maxZ: 400
+  maxZ: 1000
   minZ: 15
 --- !u!4 &1479051677
 Transform:
@@ -6338,7 +6351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3472790249586634180, guid: 5ab133c48d681ac449660e667bf95629, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab133c48d681ac449660e667bf95629, type: 3}
@@ -6399,7 +6412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3839687135679874379, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07fd999925547f94683dfefe21e608bb, type: 3}
