@@ -75,7 +75,7 @@ public class Ship : MonoBehaviour
 
         if (projectileSpawnPoint2 != null)
         {
-            GameObject projectile2 = Instantiate(projectilePrefab, projectileSpawnPoint2.position, transform.rotation);
+            GameObject projectile2 = Instantiate(damageProjectilePrefab, projectileSpawnPoint2.position, transform.rotation);
             projectile2.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
             projectile2.GetComponent<Projectile>().GetFired(gameObject);
             Destroy(projectile2, 4);
