@@ -32,7 +32,10 @@ public class EnemyShip : Ship
     // Update is called once per frame
     void Update()
     {
-        FlyTowardPlayer();
+        if (target != null)
+        {
+            FlyTowardPlayer();
+        }
 
         if (canFireAtPlayer && canShoot)
         {
