@@ -27,6 +27,9 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
+        //if (firingShip.GetComponent<EnemyShip>() && !firingShip.GetComponent<EnemyShip>().isConverted && collision.GetComponent<EnemyShip>()) return;
+
         if (isConverting && collision.GetComponent<EnemyShip>())
         {
             collision.GetComponent<EnemyShip>().TryConvert();

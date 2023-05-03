@@ -34,12 +34,20 @@ public class HUD : MonoBehaviour
     public enum CharacterEnum
     {
         grace,
+        pirateMuscleMan,
         vic,
+        parrotPirate,
+        captainPerry,
+        flowerPeople,
+        queenBee,
+        francois,
+        police,
+        admiralHwhat,
+        jimothy,
         platta,
         queen,
         laboulangerie,
         hwhat,
-        jimothy,
         pirate1,
         pirate2,
         drone1,
@@ -57,7 +65,7 @@ public class HUD : MonoBehaviour
 
     private void Start()
     {
-        WaveStartDialouge(1);
+        //WaveStartDialouge(1);
     }
 
     // Update has been added to use a timer to determine if a character is speaking. - KR
@@ -93,7 +101,7 @@ public class HUD : MonoBehaviour
     public void DisplayWave(int currentWave)
     {
         waveText.SetText("Wave: " + currentWave);
-        WaveStartDialouge(currentWave);
+        //WaveStartDialouge(currentWave);
     }
 
     // Should cause a dialogue box with a pilot speaking or taunting the player at the start of a new enemy wave. - KR

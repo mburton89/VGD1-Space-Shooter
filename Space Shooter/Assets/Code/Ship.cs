@@ -34,6 +34,9 @@ public class Ship : MonoBehaviour
     public float cooldownDuration = 1.0f;
     [HideInInspector] public bool canUseSentenceAbility;
 
+    public HUD.CharacterEnum characterEnum;
+    public string characterName;
+
     private void Awake()
     {
         currentArmor = maxArmor;
@@ -122,13 +125,12 @@ public class Ship : MonoBehaviour
         }
 
         StartCoroutine(ShootSentenceCo(sentenceToShoot, isGoodGuy));
-        //HUD.Instance.DisplayDialogue(HUD.CharacterEnum.grace, "Grace", sentenceToShoot, 1f);
+        HUD.Instance.DisplayDialogue(characterEnum, characterName, sentenceToShoot, 1f);
     }
 
     private IEnumerator ShootSentenceCo(string sentence, bool isGoodGuy)
     {
         string newSentence = sentence;
-        print(transform.rotation.z);
 
         if (GetComponentInChildren<DetatchedAim>()) // if we have a turret
         {

@@ -18,7 +18,7 @@ public class EnemyShip : Ship
     {
         if (collision.gameObject.GetComponent<PlayerShip>())
         {
-            collision.gameObject.GetComponent<PlayerShip>().TakeDamage(1);
+            collision.gameObject.GetComponent<PlayerShip>().TakeDamage(10);
             Explode();
         }
 
@@ -46,6 +46,7 @@ public class EnemyShip : Ship
 
     public void FlyTowardPlayer()
     {
+        if (target == null) return;
 
         Vector2 directionToFace = new Vector2(target.position.x - transform.position.x, target.position.y - transform.position.y);
         transform.up = directionToFace;
@@ -60,13 +61,20 @@ public class EnemyShip : Ship
             isConverted = true;
             EnemyShip[] enemyShips = FindObjectsOfType<EnemyShip>();
 
-            foreach (EnemyShip enemyShip in enemyShips)
+            if (enemyShips.Length > 1)
             {
-                if (enemyShip != this)
+                foreach (EnemyShip enemyShip in enemyShips)
                 {
-                    target = enemyShip.transform;
-                    break;
+                    if (enemyShip != this)
+                    {
+                        target = enemyShip.transform;
+                        break;
+                    }
                 }
+            }
+            else
+            {
+                TakeDamage(8);
             }
         }
     }
