@@ -4983,7 +4983,7 @@ MonoBehaviour:
   badShieldPrefab: {fileID: 0}
   acceleration: 6
   maxSpeed: 9
-  maxArmor: 3
+  maxArmor: 20
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -5000,7 +5000,7 @@ MonoBehaviour:
   cooldownDuration: 6
   canUseSentenceAbility: 0
   characterEnum: 8
-  characterName: Cop
+  characterName: E.S.D.F PD Cop
   target: {fileID: 0}
   canFireAtPlayer: 0
   isConverted: 0

@@ -4980,9 +4980,9 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 6330813987486622566}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 1
-  maxSpeed: 3
-  maxArmor: 3
+  acceleration: 9
+  maxSpeed: 10
+  maxArmor: 20
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -4992,15 +4992,15 @@ MonoBehaviour:
   - {fileID: 6330813987431276160}
   goodSentences: []
   badSentences:
-  - 'Give us your S***! '
-  - Watch it, punk!
-  - "Hand over the merch and nobody gets hurt\u2026 SIKE!"
-  - 'Tell my friend he owes me 100 bucks! '
+  - All your things are beelong to us!
+  - This might sting!
+  - All hail Queen Bee!
+  - "I\u2019m getting $6 an hour for this!"
   secondsBetweenLetters: 0.1
-  cooldownDuration: 6
+  cooldownDuration: 9
   canUseSentenceAbility: 0
-  characterEnum: 6
-  characterName: Bee Shooter
+  characterEnum: 5
+  characterName: Queen's Beesiness Associate
   target: {fileID: 0}
   canFireAtPlayer: 1
   isConverted: 0

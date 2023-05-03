@@ -9772,9 +9772,9 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 3532319070992703939}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 1
-  maxSpeed: 3
-  maxArmor: 3
+  acceleration: 3
+  maxSpeed: 5
+  maxArmor: 20
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -9784,17 +9784,22 @@ MonoBehaviour:
   - {fileID: 3532319070018730818}
   - {fileID: 3532319069564388353}
   - {fileID: 3532319071008240206}
-  goodSentences: []
+  goodSentences:
+  - 'I like your cut, G! '
+  - "I guess farmin\u2019 ain\u2019t so bad\u2026"
+  - So you are gonna share some of that load? Sign me up!
+  - "Do you lot have dental? Cap\u2019n doesn\u2019t\u2026"
+  - This beats oranges any day!
   badSentences:
   - 'Give us your S***! '
   - Watch it, punk!
   - "Hand over the merch and nobody gets hurt\u2026 SIKE!"
   - 'Tell my friend he owes me 100 bucks! '
   secondsBetweenLetters: 0.1
-  cooldownDuration: 6
+  cooldownDuration: 8
   canUseSentenceAbility: 0
   characterEnum: 3
-  characterName: Parrot Pirate
+  characterName: Vic's Hench-parrot
   target: {fileID: 0}
   canFireAtPlayer: 1
   isConverted: 0

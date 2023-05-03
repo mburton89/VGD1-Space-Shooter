@@ -9772,9 +9772,9 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 3532319070992703939}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 3
-  maxSpeed: 6
-  maxArmor: 3
+  acceleration: 4
+  maxSpeed: 7
+  maxArmor: 20
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -9794,7 +9794,7 @@ MonoBehaviour:
   cooldownDuration: 6
   canUseSentenceAbility: 0
   characterEnum: 3
-  characterName: Parrot Pirate
+  characterName: Vic's Hench-parrot
   target: {fileID: 0}
   canFireAtPlayer: 0
   isConverted: 0

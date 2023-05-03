@@ -161,7 +161,7 @@ MonoBehaviour:
   badShieldPrefab: {fileID: 0}
   acceleration: 1
   maxSpeed: 3
-  maxArmor: 50
+  maxArmor: 160
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -171,15 +171,14 @@ MonoBehaviour:
   - {fileID: 7597405136231601424}
   goodSentences: []
   badSentences:
-  - 'Give us your S***! '
+  - You call that a tractor!?
   - Watch it, punk!
-  - "Hand over the merch and nobody gets hurt\u2026 SIKE!"
-  - 'Tell my friend he owes me 100 bucks! '
+  - Drop down and gimme 100 pushups
   secondsBetweenLetters: 0.1
-  cooldownDuration: 6
+  cooldownDuration: 5
   canUseSentenceAbility: 0
   characterEnum: 9
-  characterName: Grays
+  characterName: Admiral Hwhat
   target: {fileID: 0}
   canFireAtPlayer: 1
   isConverted: 0

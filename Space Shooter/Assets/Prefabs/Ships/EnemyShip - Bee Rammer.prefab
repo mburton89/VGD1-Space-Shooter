@@ -4980,9 +4980,9 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 6330813987486622566}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 3
-  maxSpeed: 6
-  maxArmor: 3
+  acceleration: 9
+  maxSpeed: 10
+  maxArmor: 20
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -4999,8 +4999,8 @@ MonoBehaviour:
   secondsBetweenLetters: 0.1
   cooldownDuration: 6
   canUseSentenceAbility: 0
-  characterEnum: 6
-  characterName: Bee Rammer
+  characterEnum: 5
+  characterName: Queen's Beesiness Associate
   target: {fileID: 0}
   canFireAtPlayer: 0
   isConverted: 0

@@ -4981,9 +4981,9 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 5924577742566035102}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 1
-  maxSpeed: 3
-  maxArmor: 3
+  acceleration: 3
+  maxSpeed: 6
+  maxArmor: 30
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -4997,10 +4997,10 @@ MonoBehaviour:
   - Pull over, bitch!
   - You're going to jail!
   secondsBetweenLetters: 0.1
-  cooldownDuration: 6
+  cooldownDuration: 8
   canUseSentenceAbility: 0
   characterEnum: 8
-  characterName: Police
+  characterName: E.S.D.F PD Cop
   target: {fileID: 0}
   canFireAtPlayer: 1
   isConverted: 0

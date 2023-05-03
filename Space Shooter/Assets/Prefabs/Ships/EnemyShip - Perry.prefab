@@ -4950,9 +4950,9 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 1529907735736263886}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 1
-  maxSpeed: 3
-  maxArmor: 50
+  acceleration: 4
+  maxSpeed: 7
+  maxArmor: 70
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -4963,12 +4963,14 @@ MonoBehaviour:
   - {fileID: 1529907734475504077}
   goodSentences: []
   badSentences:
-  - 'Give us your S***! '
-  - Watch it, punk!
-  - "Hand over the merch and nobody gets hurt\u2026 SIKE!"
-  - 'Tell my friend he owes me 100 bucks! '
+  - "You better pray that Vic\u2019s okay!"
+  - Hoist the sails!
+  - FIRE!!!
+  - Ha! As if ye could put a scratch on this beauty!
+  - "Ye hackit Nyaff, you\u2019re dead!"
+  - Dae you want to die?! Cause I can oblige!
   secondsBetweenLetters: 0.1
-  cooldownDuration: 6
+  cooldownDuration: 8
   canUseSentenceAbility: 0
   characterEnum: 4
   characterName: Captain Perry

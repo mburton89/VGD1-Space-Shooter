@@ -4924,7 +4924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4eac4d5522a10446b2f83888bd6e30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 60
+  rotationSpeed: 400
 --- !u!1 &4959246006682967174
 GameObject:
   m_ObjectHideFlags: 0
@@ -19646,11 +19646,11 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 4959246007526620499}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 2
-  maxSpeed: 4
-  maxArmor: 3
+  acceleration: 3
+  maxSpeed: 5
+  maxArmor: 100
   fireRate: 4
-  projectileSpeed: 1
+  projectileSpeed: 50
   currentSpeed: 0
   currentArmor: 0
   canShoot: 0
@@ -19659,14 +19659,20 @@ MonoBehaviour:
   - {fileID: 4959246006920801791}
   goodSentences: []
   badSentences:
-  - AAAAA
-  - BBBBB
-  - CCCCC
+  - "Oh god! The croissants! They\u2019re taking over!"
+  - No! Not the knife!
+  - Zut alors!
+  - Watch out for the bread!
+  - "Oh, my poor ship\u2026"
+  - The ship, she weeps!
+  - "A\xEFe!"
+  - "Thank the bread gods\u2026"
+  - "I\u2019m going, I\u2019m going!"
   secondsBetweenLetters: 0.1
-  cooldownDuration: 6
+  cooldownDuration: 9
   canUseSentenceAbility: 0
   characterEnum: 7
-  characterName: Francois
+  characterName: Francois Le Pan
   target: {fileID: 0}
   canFireAtPlayer: 1
   isConverted: 0

@@ -159,9 +159,9 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 7900472659947846517}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 1
-  maxSpeed: 3
-  maxArmor: 50
+  acceleration: 8
+  maxSpeed: 10
+  maxArmor: 60
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -171,10 +171,12 @@ MonoBehaviour:
   - {fileID: 7900472661049565507}
   goodSentences: []
   badSentences:
-  - 'Give us your S***! '
-  - Watch it, punk!
-  - "Hand over the merch and nobody gets hurt\u2026 SIKE!"
-  - 'Tell my friend he owes me 100 bucks! '
+  - Kneel bee fore me, peasant!
+  - Mind your own beeswax.
+  - Drones, extinguish her!
+  - Corporate will have your head for this!
+  - Nothing personal, just good beesiness
+  - I give the orders here!
   secondsBetweenLetters: 0.1
   cooldownDuration: 6
   canUseSentenceAbility: 0

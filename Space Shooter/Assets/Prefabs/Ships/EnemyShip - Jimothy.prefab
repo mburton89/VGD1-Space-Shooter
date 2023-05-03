@@ -14593,9 +14593,9 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 5092252833609298011}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 1
-  maxSpeed: 3
-  maxArmor: 50
+  acceleration: 6
+  maxSpeed: 12
+  maxArmor: 150
   fireRate: 4
   projectileSpeed: 80
   currentSpeed: 0
@@ -14607,15 +14607,19 @@ MonoBehaviour:
   - {fileID: 5092252832577689324}
   goodSentences: []
   badSentences:
-  - 'Give us your S***! '
-  - Watch it, punk!
-  - "Hand over the merch and nobody gets hurt\u2026 SIKE!"
-  - 'Tell my friend he owes me 100 bucks! '
+  - Well that just dills my pickle!
+  - Who burnt your biscuits?
+  - Ope
+  - Now, that just jimbles my jambles!
+  - "You\u2019re fixin\u2019 fer a rootin\u2019 tootin\u2019 ass-kickin\u2019!"
+  - Sweet molasses! Ease up, will ya?!
+  - "Are you tryin\u2019 to get fired?!"
+  - "Jumpin\u2019 jitters! My ears!!"
   secondsBetweenLetters: 0.1
   cooldownDuration: 6
   canUseSentenceAbility: 0
   characterEnum: 10
-  characterName: Jimoth Jamboree
+  characterName: Jimothy Jamboree
   target: {fileID: 0}
   canFireAtPlayer: 1
   isConverted: 0
