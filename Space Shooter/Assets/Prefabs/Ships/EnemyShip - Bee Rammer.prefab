@@ -4999,7 +4999,7 @@ MonoBehaviour:
   secondsBetweenLetters: 0.1
   cooldownDuration: 6
   canUseSentenceAbility: 0
-  characterEnum: 17
+  characterEnum: 6
   characterName: Bee Rammer
   target: {fileID: 0}
   canFireAtPlayer: 0
