@@ -51,6 +51,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -364,6 +365,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Green_Space_Frog_6: 1890267139469208786
+      Green_Space_Frog_3: 3345422852709669633
+      Green_Space_Frog_4: 2964753507370678456
+      Green_Space_Frog_1: 1744271729556662385
+      Green_Space_Frog_7: 4770296841936734351
+      Green_Space_Frog_5: -8803532577917953486
+      Green_Space_Frog_0: -8358198912495138930
+      Green_Space_Frog_2: -4467237172004169956
+      Green_Space_Frog_8: -8353030974973000931
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

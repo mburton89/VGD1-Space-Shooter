@@ -9,8 +9,13 @@ public class CircleLetter: MonoBehaviour
     public float rotationSpeed;
     public float secondsToLive;
 
+    AudioSource blipSound;
+
     void Start()
     {
+        blipSound = GetComponent<AudioSource>();
+        blipSound.pitch = Random.Range(.9f, 1.2f);
+        blipSound.Play();
         Destroy(gameObject, secondsToLive);
     }
 

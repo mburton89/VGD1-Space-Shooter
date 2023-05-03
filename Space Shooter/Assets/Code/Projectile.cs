@@ -17,15 +17,25 @@ public class Projectile : MonoBehaviour
 
     [HideInInspector] public bool isDeflecting;
 
+    public bool isConverting;
+
     private void Start()
     {
-        blipSound.pitch = Random.Range(.7f, 1.4f);
+        blipSound.pitch = Random.Range(.8f, 1.3f);
         blipSound.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)
+
+        //if (firingShip.GetComponent<EnemyShip>() && !firingShip.GetComponent<EnemyShip>().isConverted && collision.GetComponent<EnemyShip>()) return;
+
+        if (isConverting && collision.GetComponent<EnemyShip>())
+        {
+            collision.GetComponent<EnemyShip>().TryConvert();
+            Destroy(gameObject);
+        }
+        else if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)
         {
             collision.GetComponent<Ship>().TakeDamage(damageToGive);
             Destroy(gameObject);

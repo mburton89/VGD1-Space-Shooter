@@ -3,26 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerShip : Ship
-{ 
+{
+    public float turnSpeed;
+    [HideInInspector] public int activeWeaponIndex;
     void Update()
     {
-        FollowMouse();
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            Thrust();
+        }
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
+            controlRotation();
+        }
+        //FollowMouse();
         HandleInput();
     }
 
     void HandleInput()
     {
 
-        if (Input.GetMouseButton(1))
-        {
-            Thrust();
-        }
+        //if (Input.GetMouseButton(1))
+        //{
+        //    Thrust();
+        //}
 
         if (!canUseSentenceAbility) return;
 
         if (Input.GetMouseButtonDown(0))
         {
-            //ShootSentence();
+            int activeWeaponIndex = WeaponSwitchManager.Instance.weaponIndex;
+
+            if (activeWeaponIndex == 0)
+            {
+                ShootConvert();
+            }
+            else if (activeWeaponIndex == 1)
+            {
+                ShootShield();
+            }
+            else if (activeWeaponIndex == 2)
+            {
+                ShootDamage();
+            }
+            else if (activeWeaponIndex == 3)
+            {
+                ShootSpaceRage();
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -62,5 +89,17 @@ public class PlayerShip : Ship
         Vector2 directionToFace = new Vector2(
             mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
         transform.up = directionToFace;
+    }
+
+    void controlRotation()
+    {
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) // counter-clockwise (left)
+        {
+            transform.Rotate(new Vector3(0, 0, turnSpeed));
+        }
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) // clockwise (right)
+        {
+            transform.Rotate(new Vector3(0, 0, -turnSpeed));
+        }
     }
 }

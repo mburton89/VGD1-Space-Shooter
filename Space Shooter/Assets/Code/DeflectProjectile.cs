@@ -12,6 +12,7 @@ public class DeflectProjectile : MonoBehaviour
             collision.GetComponent<Projectile>().isDeflecting = true;
             collision.GetComponent<Projectile>().damageToGive *= 3;
             collision.GetComponent<Projectile>().firingShip = null;
+            SoundManager.Instance.PlaySound(SoundManager.SoundEffect.Deflect);
         }
     }
 }

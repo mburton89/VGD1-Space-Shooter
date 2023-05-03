@@ -9,7 +9,6 @@ public class Ship : MonoBehaviour
     public GameObject convertProjectilePrefab;
     public GameObject damageProjectilePrefab;
     public Transform projectileSpawnPoint;
-    public Transform projectileSpawnPoint2;
 
     public GameObject shieldPrefab;
     public GameObject badShieldPrefab;
@@ -25,7 +24,8 @@ public class Ship : MonoBehaviour
 
     [HideInInspector] public bool canShoot;
 
-    [HideInInspector] ParticleSystem thrustParticles;
+    //[HideInInspector] ParticleSystem thrustParticles;
+    public List<ParticleSystem> thrustParticleSystems;
 
     public List<string> goodSentences;
     public List<string> badSentences;
@@ -34,12 +34,15 @@ public class Ship : MonoBehaviour
     public float cooldownDuration = 1.0f;
     [HideInInspector] public bool canUseSentenceAbility;
 
+    public HUD.CharacterEnum characterEnum;
+    public string characterName;
+
     private void Awake()
     {
         currentArmor = maxArmor;
         canShoot = true;
         canUseSentenceAbility = true;
-        thrustParticles = GetComponentInChildren<ParticleSystem>();
+        //thrustParticles = GetComponentInChildren<ParticleSystem>();
     }
 
     private void FixedUpdate()
@@ -50,20 +53,14 @@ public class Ship : MonoBehaviour
         }
     }
 
-    private void OnParticleCollision(GameObject other)
-    {
-        if (other.GetComponent<ParticleSystem>())
-        {
-            TakeDamage(1);
-        }
-    }
-
     public void Thrust()
     {
         rigidbody2D.AddForce(transform.up * acceleration);
-        if (thrustParticles != null)
+        //thrustParticles.Emit(1);
+        
+        foreach(ParticleSystem particleSystem in thrustParticleSystems)
         {
-            thrustParticles.Emit(1);
+            particleSystem.Emit(1);
         }
     }
     public void FireProjectile()
@@ -72,17 +69,14 @@ public class Ship : MonoBehaviour
         projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
         projectile.GetComponent<Projectile>().GetFired(gameObject);
         Destroy(projectile, 4);
-
-        if (projectileSpawnPoint2 != null)
-        {
-            GameObject projectile2 = Instantiate(projectilePrefab, projectileSpawnPoint2.position, transform.rotation);
-            projectile2.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
-            projectile2.GetComponent<Projectile>().GetFired(gameObject);
-            Destroy(projectile2, 4);
-        }
-
         StartCoroutine(FireRateBuffer());
     }
+
+    public void FireRateCoolDown()
+    {
+        StartCoroutine(FireRateBuffer());
+    }
+
 
     private IEnumerator FireRateBuffer()
     {
@@ -111,7 +105,7 @@ public class Ship : MonoBehaviour
         Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
         Destroy(gameObject);
 
-        //FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
+        FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
     }
 
     public void ShootSentence(bool isGoodGuy)
@@ -131,18 +125,30 @@ public class Ship : MonoBehaviour
         }
 
         StartCoroutine(ShootSentenceCo(sentenceToShoot, isGoodGuy));
-        HUD.Instance.DisplayDialogue(HUD.CharacterEnum.grace, "Grace", sentenceToShoot, 1f);
+        HUD.Instance.DisplayDialogue(characterEnum, characterName, sentenceToShoot, 1f);
     }
 
     private IEnumerator ShootSentenceCo(string sentence, bool isGoodGuy)
     {
         string newSentence = sentence;
-        print(transform.rotation.z);
-        if (transform.rotation.z < 0)
+
+        if (GetComponentInChildren<DetatchedAim>()) // if we have a turret
         {
-            char[] stringArray = newSentence.ToCharArray();
-            Array.Reverse(stringArray);
-            newSentence = new string(stringArray);
+            if (GetComponentInChildren<DetatchedAim>().transform.rotation.z < 0)
+            {
+                char[] stringArray = newSentence.ToCharArray();
+                Array.Reverse(stringArray);
+                newSentence = new string(stringArray);
+            }
+        }
+        else // if we DONT have a turret
+        {
+            if (transform.rotation.z < 0)
+            {
+                char[] stringArray = newSentence.ToCharArray();
+                Array.Reverse(stringArray);
+                newSentence = new string(stringArray);
+            }
         }
 
         foreach (char character in newSentence)
@@ -158,7 +164,7 @@ public class Ship : MonoBehaviour
                 projectile = Instantiate(damageProjectilePrefab, projectileSpawnPoint.position, transform.rotation);
             }
 
-            projectile.GetComponent<Rigidbody2D>().AddForce(transform.up * projectileSpeed);
+            projectile.GetComponent<Rigidbody2D>().AddForce(projectileSpawnPoint.transform.up * projectileSpeed);
             projectile.GetComponent<Projectile>().GetFired(gameObject);
             projectile.GetComponent<Projectile>().letter.SetText(character.ToString());
             projectile.transform.eulerAngles = Vector3.zero;

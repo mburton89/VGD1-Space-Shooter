@@ -38,7 +38,7 @@ public class Planet : MonoBehaviour
             Explode();
         }
 
-        HUD.Instance.DisplayPlanetHealth(currentArmor, maxArmor);
+        HUD.Instance.DisplayPlayerHealth(currentArmor, maxArmor);
 
         if (GetComponent<FlashWhite>())
         {
