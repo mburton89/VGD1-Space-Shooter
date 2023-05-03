@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : EnemyShip
+public class Boss : MonoBehaviour
 {
 
     public bool canUseAbility;   
@@ -17,17 +17,8 @@ public class Boss : EnemyShip
 
     void Update()
     {
-        FlyTowardPlayer();
         AbilityUsageCheck();
-        UseAbility();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.GetComponent<PlayerShip>())
-        {
-            collision.gameObject.GetComponent<PlayerShip>().TakeDamage(1);
-        }
+        AbilityAvailableTimer();
     }
    
     public void AbilityUsageCheck()
@@ -44,7 +35,7 @@ public class Boss : EnemyShip
         
     }
 
-    public void UseAbility()
+    public void AbilityAvailableTimer()
     {
 
         if (canUseAbility && isCooldownOver)

@@ -7,6 +7,7 @@ public class EnemyShip : Ship
     [HideInInspector] public Transform target;
     public bool canFireAtPlayer;
     [HideInInspector] public bool isConverted;
+    public bool isBoss;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class EnemyShip : Ship
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (isBoss == false)
         if (collision.gameObject.GetComponent<PlayerShip>())
         {
             collision.gameObject.GetComponent<PlayerShip>().TakeDamage(10);
