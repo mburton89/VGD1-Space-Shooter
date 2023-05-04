@@ -9,6 +9,7 @@ public class DamageShipOnImpact : MonoBehaviour
         if (collision.GetComponent<EnemyShip>())
         {
             collision.GetComponent<EnemyShip>().TakeDamage(1000);
+            FindObjectOfType<PlayerShip>().TakeDamage(collision.GetComponent<EnemyShip>().maxArmor / 10);
         }
         if (collision.GetComponent<Projectile>())
         {

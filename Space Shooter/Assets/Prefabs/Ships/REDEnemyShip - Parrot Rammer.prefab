@@ -9655,6 +9655,7 @@ GameObject:
   - component: {fileID: 3532319070910209573}
   - component: {fileID: 3532319070910209571}
   - component: {fileID: 3532319070910209575}
+  - component: {fileID: -1865135421156691851}
   m_Layer: 0
   m_Name: REDEnemyShip - Parrot Rammer
   m_TagString: Untagged
@@ -9772,11 +9773,11 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 3532319070992703939}
   shieldPrefab: {fileID: 0}
   badShieldPrefab: {fileID: 0}
-  acceleration: 4
-  maxSpeed: 7
-  maxArmor: 20
+  acceleration: 8
+  maxSpeed: 10
+  maxArmor: 15
   fireRate: 4
-  projectileSpeed: 80
+  projectileSpeed: 120
   currentSpeed: 0
   currentArmor: 0
   canShoot: 0
@@ -9795,9 +9796,13 @@ MonoBehaviour:
   canUseSentenceAbility: 0
   characterEnum: 1
   characterName: "Perry\u2019s Hench-Parrot"
+  greenMaterial: {fileID: 2100000, guid: 065039a642e39d442ad8a9bbb72c2b5b, type: 2}
+  whiteMaterial: {fileID: 2100000, guid: 875c5b11cdb549a44aa01913e901bcf7, type: 2}
+  hitSound: {fileID: -1865135421156691851}
   target: {fileID: 0}
   canFireAtPlayer: 0
   isConverted: 0
+  isCwasson: 0
 --- !u!70 &3532319070910209575
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -9814,6 +9819,102 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.81, y: 2.19}
   m_Direction: 0
+--- !u!82 &-1865135421156691851
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3532319070910209569}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b0a64e4e12f167f4c917c1a9bf84b248, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3532319070992703938
 GameObject:
   m_ObjectHideFlags: 0

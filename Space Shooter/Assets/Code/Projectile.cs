@@ -33,6 +33,7 @@ public class Projectile : MonoBehaviour
         if (isConverting && collision.GetComponent<EnemyShip>())
         {
             collision.GetComponent<EnemyShip>().TryConvert();
+            collision.GetComponent<EnemyShip>().FlashGreen();
             Destroy(gameObject);
         }
         else if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)

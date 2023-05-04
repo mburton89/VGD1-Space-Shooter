@@ -8,17 +8,24 @@ public class EnemyShip : Ship
     public bool canFireAtPlayer;
     [HideInInspector] public bool isConverted;
 
+    public bool isCwasson;
+
     void Start()
     {
 
         target = FindObjectOfType<PlayerShip>().transform;
+
+        if (isCwasson)
+        {
+            StartCoroutine(DelayDestroy());
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerShip>())
         {
-            collision.gameObject.GetComponent<PlayerShip>().TakeDamage(10);
+            collision.gameObject.GetComponent<PlayerShip>().TakeDamage(15);
             Explode();
         }
 
@@ -77,5 +84,11 @@ public class EnemyShip : Ship
                 TakeDamage(8);
             }
         }
+    }
+
+    private IEnumerator DelayDestroy()
+    {
+        yield return new WaitForSeconds(2);
+        Explode();
     }
 }

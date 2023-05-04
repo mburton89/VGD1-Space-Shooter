@@ -21,7 +21,6 @@ public class Ship : MonoBehaviour
 
     [HideInInspector] public float currentSpeed;
     [HideInInspector] public int currentArmor;
-
     [HideInInspector] public bool canShoot;
 
     //[HideInInspector] ParticleSystem thrustParticles;
@@ -37,11 +36,20 @@ public class Ship : MonoBehaviour
     public HUD.CharacterEnum characterEnum;
     public string characterName;
 
+    SpriteRenderer sprite;
+    Material initialMaterial;
+    public Material greenMaterial;
+    public Material whiteMaterial;
+
+    public AudioSource hitSound;
+
     private void Awake()
     {
         currentArmor = maxArmor;
         canShoot = true;
         canUseSentenceAbility = true;
+        sprite = GetComponentInChildren<SpriteRenderer>();
+        initialMaterial = sprite.material;
         //thrustParticles = GetComponentInChildren<ParticleSystem>();
     }
 
@@ -88,6 +96,9 @@ public class Ship : MonoBehaviour
     public void TakeDamage(int damageToGive)
     {
         //TODO: play getHitSound
+        hitSound.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        hitSound.Play();
+
         currentArmor -= damageToGive;
         if (currentArmor <= 0)
         {
@@ -98,6 +109,9 @@ public class Ship : MonoBehaviour
         {
             HUD.Instance.DisplayPlayerHealth(currentArmor, maxArmor);
         }
+
+        StartCoroutine(FlashWhite());
+
     }
     public void Explode()
     {
@@ -222,5 +236,24 @@ public class Ship : MonoBehaviour
         print("Space Rage in CoolDown");
         yield return new WaitForSeconds(cooldownDuration);
         canUseSentenceAbility = true;
+    }
+
+    public void FlashGreen()
+    {
+        StartCoroutine(FlashGreenCo());
+    }
+
+    private IEnumerator FlashGreenCo()
+    {
+        sprite.material = greenMaterial;
+        yield return new WaitForSeconds(0.02f);
+        sprite.material = initialMaterial;
+    }
+
+    private IEnumerator FlashWhite()
+    {
+        sprite.material = whiteMaterial;
+        yield return new WaitForSeconds(0.02f);
+        sprite.material = initialMaterial;
     }
 }
