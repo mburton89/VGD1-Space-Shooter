@@ -35,6 +35,8 @@ public class HUD : MonoBehaviour
     public List<string> hiveDialogueList;
     public List<string> defenderDialogueList;
 
+    public AudioSource scream;
+
     public enum CharacterEnum
     {
         grace,
@@ -260,7 +262,9 @@ public class HUD : MonoBehaviour
 
     private IEnumerator RestartCo()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1.5f);
+        scream.Play();
+        yield return new WaitForSeconds(.4f);
         jeebus.SetActive(true);
         yield return new WaitForSeconds(.01f);
         SceneManager.LoadScene(1);
