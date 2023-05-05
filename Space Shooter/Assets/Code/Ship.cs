@@ -118,9 +118,22 @@ public class Ship : MonoBehaviour
     {
         ScreenShakeManager.Instance.ShakeScreen();
         Instantiate(Resources.Load("Explosion"), transform.position, transform.rotation);
+
+        if (GetComponent<PlayerShip>())
+        {
+            HUD.Instance.Restart();
+        }
+
+        if (tag == "Jimothy")
+        {
+            HUD.Instance.HandleWin();
+        }
+
         Destroy(gameObject);
 
         FindObjectOfType<EnemyShipSpawner>().CountEnemyShips();
+
+
     }
 
     public void ShootSentence(bool isGoodGuy)

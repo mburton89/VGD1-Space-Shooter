@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -25,6 +26,9 @@ public class HUD : MonoBehaviour
     public float dialogueCloseTimer;
 
     public List<Sprite> portraits;
+
+    public GameObject jeebus;
+    public GameObject weenorz;
 
     // Lists for selecting random dialogue options for different pilot types at the start of a wave.
     public List<string> pirateDialogueList;
@@ -247,4 +251,31 @@ public class HUD : MonoBehaviour
         //return;
     }
     */ //TODO - Finish with a count to close the dialogue box. - KR
+
+
+    public void Restart()
+    {
+        StartCoroutine(RestartCo());
+    }
+
+    private IEnumerator RestartCo()
+    {
+        yield return new WaitForSeconds(2);
+        jeebus.SetActive(true);
+        yield return new WaitForSeconds(.01f);
+        SceneManager.LoadScene(1);
+    }
+
+    public void HandleWin()
+    {
+        StartCoroutine(HandleWinCo());
+    }
+
+    private IEnumerator HandleWinCo()
+    {
+        yield return new WaitForSeconds(2);
+        weenorz.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(0);
+    }
 }

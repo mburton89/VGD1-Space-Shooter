@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScaleText : MonoBehaviour
 {
@@ -7,11 +8,11 @@ public class ScaleText : MonoBehaviour
     public float maxScale = 1.0f;
     public float scaleSpeed = 0.1f;
 
-    private Text text;
+    private TextMeshProUGUI text;
 
     private void Start()
     {
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
         text.rectTransform.localScale = Vector3.zero;
     }
 
