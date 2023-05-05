@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour
         {
             collision.GetComponent<EnemyShip>().TryConvert();
             collision.GetComponent<EnemyShip>().FlashGreen();
+            collision.GetComponent<EnemyShip>().PlayHitSound();
             Destroy(gameObject);
         }
         else if (collision.GetComponent<Ship>() && collision.gameObject != firingShip)

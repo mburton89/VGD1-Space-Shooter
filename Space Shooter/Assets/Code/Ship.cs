@@ -97,8 +97,7 @@ public class Ship : MonoBehaviour
     public void TakeDamage(int damageToGive)
     {
         //TODO: play getHitSound
-        hitSound.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
-        hitSound.Play();
+        PlayHitSound();
 
         currentArmor -= damageToGive;
         if (currentArmor <= 0)
@@ -114,6 +113,13 @@ public class Ship : MonoBehaviour
         StartCoroutine(FlashWhite());
 
     }
+
+    public void PlayHitSound()
+    {
+        hitSound.pitch = UnityEngine.Random.Range(0.9f, 1.1f);
+        hitSound.Play();
+    }
+
     public void Explode()
     {
         ScreenShakeManager.Instance.ShakeScreen();

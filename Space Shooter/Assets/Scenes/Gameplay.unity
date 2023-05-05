@@ -7891,7 +7891,7 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 1142608367}
   shieldPrefab: {fileID: 7615899763061922769, guid: 22d42f6f76605044f886940c6d01ecd1, type: 3}
   badShieldPrefab: {fileID: 7615899763061922769, guid: 0fffec9c8ac8afd47a42909e5b5350d1, type: 3}
-  acceleration: 20
+  acceleration: 25
   maxSpeed: 15
   maxArmor: 60
   fireRate: 1
@@ -7928,7 +7928,7 @@ MonoBehaviour:
   greenMaterial: {fileID: 2100000, guid: 065039a642e39d442ad8a9bbb72c2b5b, type: 2}
   whiteMaterial: {fileID: 2100000, guid: 875c5b11cdb549a44aa01913e901bcf7, type: 2}
   hitSound: {fileID: 1004388757}
-  turnSpeed: 4
+  turnSpeed: 6
   activeWeaponIndex: 0
 --- !u!82 &1004388757
 AudioSource:
@@ -7940,7 +7940,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0a64e4e12f167f4c917c1a9bf84b248, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2e9fa4338cc46224ca53d66d8bf93a67, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -14066,7 +14066,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 139de5a6f715700468cd2f067012719b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 292613e24fb111747aa9e68cd68e3efc, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
