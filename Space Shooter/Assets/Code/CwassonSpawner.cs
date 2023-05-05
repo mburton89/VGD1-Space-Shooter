@@ -5,6 +5,7 @@ using UnityEngine;
 public class CwassonSpawner : MonoBehaviour
 {
     public GameObject cwassonProjectile;
+    public Transform spawnPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +16,7 @@ public class CwassonSpawner : MonoBehaviour
 
     private IEnumerator SpawnCo()
     {
-        Instantiate(cwassonProjectile, transform.position, transform.rotation, null);
+        Instantiate(cwassonProjectile, spawnPoint.position, transform.rotation, null);
         yield return new WaitForSeconds(3);
         StartCoroutine(SpawnCo());
 

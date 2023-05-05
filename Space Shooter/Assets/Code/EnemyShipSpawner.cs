@@ -72,6 +72,12 @@ public class EnemyShipSpawner : MonoBehaviour
         spawnPivot.eulerAngles = new Vector3(0, 0, zRotation);
     }
 
+    private IEnumerator DelaySpawnWave(int wave)
+    {
+        yield return new WaitForSeconds(1.5f);
+        SpawnWave(wave);
+    }
+
     void SpawnWave(int wave)
     {
         if (wave == 2)
@@ -80,6 +86,7 @@ public class EnemyShipSpawner : MonoBehaviour
             {
                 SpinSpawnPosition();
                 Instantiate(wave2Prefabs[i], spawnPoint.position, transform.rotation, null);
+                CutSceneManager.Instance.Activate(HUD.CharacterEnum.vic, "Vic Lokus", "You took out my crew, now I'm gonna take out you!");
             }
         }
         else if (wave == 3)
@@ -96,6 +103,7 @@ public class EnemyShipSpawner : MonoBehaviour
             {
                 SpinSpawnPosition();
                 Instantiate(wave4Prefabs[i], spawnPoint.position, transform.rotation, null);
+                CutSceneManager.Instance.Activate(HUD.CharacterEnum.captainPerry, "Captain Perry", "GYarrr, yer booty be goin down!");
             }
         }
         else if (wave == 5)
@@ -112,6 +120,7 @@ public class EnemyShipSpawner : MonoBehaviour
             {
                 SpinSpawnPosition();
                 Instantiate(wave6Prefabs[i], spawnPoint.position, transform.rotation, null);
+                CutSceneManager.Instance.Activate(HUD.CharacterEnum.queenBee, "Queen Bee", "You won't beelieve the pain I'll inflict on you!");
             }
         }
         else if (wave == 7)
@@ -120,6 +129,7 @@ public class EnemyShipSpawner : MonoBehaviour
             {
                 SpinSpawnPosition();
                 Instantiate(wave7Prefabs[i], spawnPoint.position, transform.rotation, null);
+                CutSceneManager.Instance.Activate(HUD.CharacterEnum.francois, "Francois Le Pan", "Oh god! The croissants... They're taking over!");
             }
         }
         else if (wave == 8)
@@ -136,6 +146,7 @@ public class EnemyShipSpawner : MonoBehaviour
             {
                 SpinSpawnPosition();
                 Instantiate(wave9Prefabs[i], spawnPoint.position, transform.rotation, null);
+                CutSceneManager.Instance.Activate(HUD.CharacterEnum.admiralHwhat, "Admiral Hwhat", "I'm pulling you over, farmer!");
             }
         }
         else if (wave == 10)
@@ -144,6 +155,7 @@ public class EnemyShipSpawner : MonoBehaviour
             {
                 SpinSpawnPosition();
                 Instantiate(wave10Prefabs[i], spawnPoint.position, transform.rotation, null);
+                CutSceneManager.Instance.Activate(HUD.CharacterEnum.jimothy, "Jimothy Jamboree", "Well that just dills my pickle");
             }
         }
     }

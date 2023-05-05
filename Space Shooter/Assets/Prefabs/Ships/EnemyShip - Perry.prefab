@@ -4955,7 +4955,7 @@ MonoBehaviour:
   maxSpeed: 7
   maxArmor: 60
   fireRate: 4
-  projectileSpeed: 120
+  projectileSpeed: 130
   currentSpeed: 0
   currentArmor: 0
   canShoot: 0
@@ -4970,6 +4970,7 @@ MonoBehaviour:
   - Ha! As if ye could put a scratch on this beauty!
   - "Ye hackit Nyaff, you\u2019re dead!"
   - Dae you want to die?! Cause I can oblige!
+  introBark: You better pray that VIc's OK.
   secondsBetweenLetters: 0.1
   cooldownDuration: 8
   canUseSentenceAbility: 0
@@ -5008,10 +5009,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b0a64e4e12f167f4c917c1a9bf84b248, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2ae5314b03bf82241b4078c104e15986, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.39
+  m_Pitch: 2.26
   Loop: 0
   Mute: 0
   Spatialize: 0

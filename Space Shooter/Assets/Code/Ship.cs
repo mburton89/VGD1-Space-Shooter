@@ -28,6 +28,7 @@ public class Ship : MonoBehaviour
 
     public List<string> goodSentences;
     public List<string> badSentences;
+    public string introBark;
     public float secondsBetweenLetters;
 
     public float cooldownDuration = 1.0f;
